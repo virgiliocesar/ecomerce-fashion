@@ -3,7 +3,7 @@ import { Link } from "react-router";
 const Navbar = () => {
   return (
     <header className="fixed-nav-bar w-nav">
-      <nav className="max-w-screen-2x1 mx-auto px-4 flex items-center justify-between">
+      <nav className="max-w-screen-2x1 mx-auto px-4 flex justify-between items-center">
         <ul className="nav__links">
           <li className="link">
             <Link to="/">Home</Link>
@@ -15,7 +15,7 @@ const Navbar = () => {
             <Link to="/pages">Pages</Link>
           </li>
           <li className="link">
-            <Link to="/contact">contact</Link>
+            <Link to="/contact">Contact</Link>
           </li>
         </ul>
         {/*logo*/}

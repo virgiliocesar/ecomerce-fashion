@@ -1,0 +1,31 @@
+import { Link } from "react-router";
+
+import category1 from "../../assets/category-1.jpg";
+import category2 from "../../assets/category-2.jpg";
+import category3 from "../../assets/category-3.jpg";
+import category4 from "../../assets/category-4.jpg";
+const Categories = () => {
+    const categories = [
+      { name: "Acessories", path: "accessories", image: category1 },
+      { name: "Dress Collection", path: "Dress Collection", image: category2 },
+      { name: "Jewellery", path: "Jewellery", image: category3 },
+      { name: "Cosmetics", path: "Cosmetics", image: category4 },
+    ];
+
+  return (
+      <>
+          <div className="product__grid">
+              {
+                  categories.map((category) => (
+                      <Link to={`/categories/${category.path}`} key={category.name} className="categories__card">
+                          <img src={category.image} alt={category.name} />
+                          <h4>{category.name}</h4>
+                      </Link>
+                  ))
+              }
+          </div>
+      </>
+  )
+}
+
+export default Categories
