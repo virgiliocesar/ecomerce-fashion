@@ -1,12 +1,14 @@
-import Banner from "./Banner"
-import Categories from "./Categories"
+import Banner from "./Banner";
+import Categories from "./Categories";
+import HeroSection from "./HeroSection";
 const Home = () => {
   return (
-      <>
-          <Banner />
-          <Categories />
-      </>
-  )
-}
+    <>
+      <Banner />
+      <Categories />
+      <HeroSection />
+    </>
+  );
+};
 
-export default Home
+export default Home;
