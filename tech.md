@@ -2,6 +2,7 @@
 
 react
 react-router
-tailwondcc
+tailwindcc
+remixicon
 
 # backend tech

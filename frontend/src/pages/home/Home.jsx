@@ -1,3 +1,4 @@
+import Trendingproducts from "../shop/Trendingproducts";
 import Banner from "./Banner";
 import Categories from "./Categories";
 import HeroSection from "./HeroSection";
@@ -7,6 +8,7 @@ const Home = () => {
       <Banner />
       <Categories />
       <HeroSection />
+      <Trendingproducts />
     </>
   );
 };
