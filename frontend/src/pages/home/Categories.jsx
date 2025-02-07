@@ -6,14 +6,14 @@ import category3 from "../../assets/category-3.jpg";
 import category4 from "../../assets/category-4.jpg";
 const Categories = () => {
     const categories = [
-      { name: "Acessórios", path: "Acessórios", image: category1 },
+      { name: "Acessórios", path: "acessórios", image: category1 },
       {
         name: "Coleção de vestidos",
-        path: "Coleção de vestidos",
+        path: "coleção de vestidos",
         image: category2,
       },
       { name: "Jóias", path: "Jóias", image: category3 },
-      { name: "Cosméticos", path: "Cosméticos", image: category4 },
+      { name: "Cosméticos", path: "cosméticos", image: category4 },
     ];
 
   return (
