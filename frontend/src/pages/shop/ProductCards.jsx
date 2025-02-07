@@ -14,8 +14,8 @@ const ProductCards = ({ products }) => {
                                 className="max-h96 md:h-64 w-full objexct-cover hover:scale-105 transition-all duration-300"
                             />
                         </Link>
-                        <div className="hover:block absolute top-3 right-3">
-                            <button><i className="ri-shopping-cart-line bg-primary p-1.5 text-white hover:bg-primary-dark"></i></button>
+                        <div className="hover:block absolute top-4 right-3">
+                            <button><i className="ri-shopping-cart-line bg-primary p-1.5 pad-10 text-white hover:bg-primary-dark "></i></button>
                         </div>
                     </div>
                     {/* product description */}

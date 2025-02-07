@@ -595,3 +595,9 @@ input[type="number"]::-webkit-outer-spin-button {
 .bg-primary{
   background-color: var(--primary-color);
 }
+.bg-primary-light{
+  background-color: var(--primary-color-light);
+}
+.pad-10{
+  padding: 10px;
+}
