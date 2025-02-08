@@ -9,6 +9,7 @@ export default {
         "screen-2xl": "1400px",
         "custom-1200": "1200px",
         "custom-900": "900px",
+        "4xl": "56rem"
       },
       colors: {
         'primary': "#ed3849",
