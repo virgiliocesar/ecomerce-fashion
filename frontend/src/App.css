@@ -619,3 +619,44 @@ input[type="number"]::-webkit-outer-spin-button {
   padding: 10px;
   border-radius: 5px;
 }
+.space-y-2 {
+    :where(& > :not(:last-child)) {
+        --tw-space-y-reverse: 0;
+        margin-block-start: calc(calc(var(--spacing) * 2) /* 0.5rem = 8px */ * var(--tw-space-y-reverse));
+        margin-block-end: calc(calc(var(--spacing) * 2) /* 0.5rem = 8px */ * calc(1 - var(--tw-space-y-reverse)));
+    }
+}
+.space-y-5 {
+    :where(& > :not(:last-child)) {
+        --tw-space-y-reverse: 0;
+        margin-block-start: calc(calc(var(--spacing) * 5) /* 1.25rem = 20px */ * var(--tw-space-y-reverse));
+        margin-block-end: calc(calc(var(--spacing) * 5) /* 1.25rem = 20px */ * calc(1 - var(--tw-space-y-reverse)));
+    }
+}
+
+.ml-1 {
+    margin-left: calc(var(--spacing) * 1) /* 0.25rem = 4px */;
+}
+.px-4 {
+    padding-inline: calc(var(--spacing) * 4) /* 1rem = 16px */;
+    padding: 0 2.9rem;
+}
+.py-1 {
+    padding-block: calc(var(--spacing) * 1) /* 0.25rem = 4px */
+}
+
+.filter-btn {
+  padding: 0.1rem 2.9rem;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  color: var(--white);
+  background-color: var(--primary-color);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.filter-btn:hover {
+  background-color: var(--primary-color-dark);
+}
