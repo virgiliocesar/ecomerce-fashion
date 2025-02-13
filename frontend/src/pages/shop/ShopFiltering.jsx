@@ -17,7 +17,6 @@ const ShopFiltering = ({filters, filtersState, setFiltersState, clearFilters,}) 
                               onChange={(e) => setFiltersState({ ...filtersState, category: e.target.value })} />
                           <span  className="ml-1">{category}</span>
                       </label>
-                      
                   ))
               }
           </div>
