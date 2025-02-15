@@ -1,6 +1,12 @@
+import { useSelector } from "react-redux";
 import { Link } from "react-router";
 
 const Navbar = () => {
+  const products = useSelector((state) => state.cart.products);
+  console.log(products);
+
+
+
   return (
     <header className="fixed-nav-bar w-nav">
       <nav className="max-w-screen-2x1 mx-auto  flex justify-between items-center">
@@ -36,7 +42,7 @@ const Navbar = () => {
             <button className="hover-text-primary">
               <i className="ri-shopping-bag-line"></i>
               <sup className="text-sm inline-block px-1.5 text-white rounded-full bg-primary text-center w-5">
-                0
+                {products.length}
               </sup>
             </button>
           </span>
