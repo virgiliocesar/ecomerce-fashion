@@ -9,7 +9,7 @@ export default {
         "custom-900": "900px",
       },
       colors: {
-        primary: "#ed3849",
+        "primary": "#ed3849",
         "primary-dark": "#d23141",
         "primary-light": "#f4e5ec",
         "text-dark": "#0f172a",
