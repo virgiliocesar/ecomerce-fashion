@@ -2,8 +2,7 @@ import { useSelector } from 'react-redux';
 
 const OrderSummary = () => {
 
-  const products = useSelector((store) => store.cart.products.length)
-  console.log(useSelector((store) => store.cart))
+  const products = useSelector((store) => store.cart.products)
 
   const {
     selectedItems,
