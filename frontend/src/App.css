@@ -756,3 +756,31 @@ color: white;
 .p-8 {
     padding: calc(var(--spacing) * 8) /* 2rem = 32px */;
 }
+.pt-5 {
+    padding-top: calc(var(--spacing) * 5) /* 1.25rem = 20px */;
+}
+.pt-8 {
+    padding-top: calc(var(--spacing) * 8) /* 2rem = 32px */;
+}
+.py-3 {
+    padding-block: calc(var(--spacing) * 3) /* 0.75rem = 12px */;
+}
+.my-5 {
+    margin-block: calc(var(--spacing) * 5) /* 1.25rem = 20px */;
+}
+.mt-5 {
+    margin-top: calc(var(--spacing) * 5) /* 1.25rem = 20px */;
+}.p-6 {
+    padding: calc(var(--spacing) * 6) /* 1.5rem = 24px */;
+}.px-5 {
+    padding-inline: calc(var(--spacing) * 5) /* 1.25rem = 20px */;
+}
+.login-btn:hover{
+  background-color: oklch(0.585 0.233 277.117);
+  cursor: pointer;
+}
+.hover-lr-name:hover{
+  color: oklch(0.585 0.233 277.117);
+  cursor: pointer;
+}
+

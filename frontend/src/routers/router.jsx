@@ -7,6 +7,7 @@ import ShopPage from "../pages/shop/ShopPage";
 import SingleProduct from "../pages/shop/productDetails/SingleProduct";
 import Login from "../components/Login";
 import Register from "../components/Register";
+import EmDesenvolvimento from "../components/EmDesenvolvimento";
 
 
 
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
             {
                 path: "/shop",
                 element: <ShopPage />
+            },
+            {
+                path: "/pages",
+                element: <EmDesenvolvimento />
             },
             {
                 path: "/shop/:id",
