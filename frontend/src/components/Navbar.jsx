@@ -32,7 +32,7 @@ const Navbar = () => {
         {/*logo*/}
         <div className="nav__logo">
           <Link to="/">
-            Lebaba<span>.</span>
+            Fashion<span>.</span>
           </Link>
         </div>
 

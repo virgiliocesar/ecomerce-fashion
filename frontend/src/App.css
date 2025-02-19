@@ -753,3 +753,6 @@ color: white;
 .mr-2 {
     margin-right: calc(var(--spacing) * 2) /* 0.5rem = 8px */;
 }
+.p-8 {
+    padding: calc(var(--spacing) * 8) /* 2rem = 32px */;
+}
