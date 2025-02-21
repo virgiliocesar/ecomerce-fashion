@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "start:dev": "node --watch src/index.js"
+    "start:dev": "node  --env-file=.env.exemplo --watch index.js"
   },
   "keywords": [],
   "author": "",
@@ -12,7 +12,11 @@
   "type": "commonjs",
   "description": "",
   "dependencies": {
+    "body-parser": "^1.20.3",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
     "express": "^4.21.2",
-    "nodemon": "^3.1.9"
+    "mongodb": "^6.13.1",
+    "mongoose": "^8.10.1"
   }
 }
