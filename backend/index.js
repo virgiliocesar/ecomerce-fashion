@@ -21,6 +21,26 @@ app.use(
   })
 );
 
+
+//all routes
+const authRules = require("./src/users/user.route");
+
+
+
+// const userRules = require("./routes/user");
+// const productRules = require("./routes/product");
+// const cartRules = require("./routes/cart");
+// const orderRules = require("./routes/order");
+
+app.use("/api/auth", authRules);
+// app.use("/api/user", userRules);
+// app.use("/api/product", productRules);
+// app.use("/api/cart", cartRules);
+// app.use("/api/order", orderRules);
+
+
+
+
 main()
   .then(() => console.log("conectado ao MongoDB com sucesso"))
   .catch((err) => console.log(err));
