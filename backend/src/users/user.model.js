@@ -1,7 +1,7 @@
 const { Schema, model } = require("mongoose");
 const bcrypt = require('bcrypt');
 
-// Definição do schema do usuário
+//^ Definição do schema do usuário
 const userSchema = new Schema({
   username: {
     type: String,
@@ -15,7 +15,7 @@ const userSchema = new Schema({
     required: [true, "O email é obrigatório."],
     unique: true,
     trim: true,
-    lowercase: true, // Converte o email para minúsculas
+    lowercase: true,
     match: [
       /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
       "Por favor, insira um email válido.",
@@ -50,16 +50,21 @@ const userSchema = new Schema({
   },
 });
 
-//hash password
+//^ hashing password
 userSchema.pre("save", async function (next) {
   const user = this
   if(!user.isModified("password")) return next()
    const hashedPassword = await bcrypt.hash(user.password, 10)
-   user.password = hashedPassword
+  user.password = hashedPassword
+  next()
 });
 
-// Criação do modelo User
+//^ match password
+userSchema.comparePassword = function (cadidatePassword) {
+  return bcrypt.compare(cadidatePassword, this.password)
+}
+
+
 const User = model("User", userSchema);
 
-// Exportação do modelo
 module.exports = User;
