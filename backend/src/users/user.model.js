@@ -1,4 +1,5 @@
 const { Schema, model } = require("mongoose");
+const bcrypt = require('bcrypt');
 
 // Definição do schema do usuário
 const userSchema = new Schema({
@@ -47,6 +48,14 @@ const userSchema = new Schema({
     type: Date,
     default: Date.now,
   },
+});
+
+//hash password
+userSchema.pre("save", async function (next) {
+  const user = this
+  if(!user.isModified("password")) return next()
+   const hashedPassword = await bcrypt.hash(user.password, 10)
+   user.password = hashedPassword
 });
 
 // Criação do modelo User
