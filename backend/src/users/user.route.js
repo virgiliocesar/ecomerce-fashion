@@ -17,18 +17,24 @@ router.post("/register", async (req, res) => {
 
     //^ login eindpoint
 router.post("/login", async (req, res) => {
-  const { email, password } = req.body;
-  const user = await User.findOne({ email});
-  if (!user) {
-    return res.status(404).send({ message: "user not found " });
-    }
+    const { email, password } = req.body;
+    try {
 
-  //^ compare password using bcrypt.compare() method
-  const isMatch = await user.comparePassword(password);
-  if (!isMatch) {
-    return res.status(401).send({ message: "password not match" });
-  }
-  res.status(200).send({ message: "logged in successfully", user });
+        const user = await User.findOne({ email });
+        if (!user) {
+            return res.status(404).send({ message: "user not found " });
+        }
+
+        //^ compare password using bcrypt.compare() method
+        const isMatch = await user.comparePassword(password);
+        if (!isMatch) {
+            return res.status(401).send({ message: "password not match" });
+        }
+        res.status(200).send({ message: "logged in successfully", user });
+    } catch (error) {
+        console.error("Error logging in user:", error);
+        res.status(400).send({ message: "Error logging in user" });
+    }
 });
 
 module.exports = router;
