@@ -15,14 +15,17 @@
 #### backend
 [express](htttps://expressjs.com/)
 [nodemon]([https://nodemonjs.)
-[mongoose](https://mongoosejs.com/) *opcional*
+
 [mongodb](https://www.mongodb.com/products/platform/cloud)
 [cors](https://www.npmjs.com/package/cors)
-[dotenv](https://www.npmjs.com/package/dotenv) *opcional*
+
 [cookie-parser](https://www.npmjs.com/package/cookie-parser)
 [body-parser](https://www.npmjs.com/package/body-parser)
 [bcrypt](https://www.npmjs.com/package/bcrypt)
 [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)
 
+#### opcional caso não queira usar metodo nativo de leitura .env e watch do node
+[dotenv](https://www.npmjs.com/package/dotenv) *opcional*
+[mongoose](https://mongoosejs.com/) *opcional*
 </div>
 </div>
