@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "start:dev": "node  --env-file=.env.exemplo --watch index.js"
+    "start:dev": "node --env-file=.env.exemplo --watch index.js"
   },
   "keywords": [],
   "author": "",

@@ -1,6 +1,7 @@
 const express = require("express");
 const User = require("./user.model");
 const generateToken = require("../middleware/generatetoken");
+const verifyToken = require("../middleware/verifyToken");
 const router = express.Router();
 
 //^ register endpoint
@@ -57,5 +58,42 @@ router.post("/login", async (req, res) => {
     res.status(400).send({ message: "Error logging in user" });
   }
 });
+
+//^ logout endpoint
+router.post("/logout", (req, res) => {
+  res.clearCookie("token");
+  res.status(200).send({ message: "logged out successfully" });
+});
+
+//^ delete user
+router.delete("/users/:id", async (req, res) => {
+  try {
+    const {id} = req.params;
+    const user = await User.findByIdAndDelete(id);
+    if (!user) {
+      return res.status(404).send({ message: "User not found" });
+    }
+    res.status(200).send({ message: "User deleted successfully" });
+  } catch (error) {
+    console.error("Error deleting user:", error);
+    res.status(400).send({ message: "Error deleting user" });
+  }
+});
+
+//^ get all users
+router.get("/users", async (req, res) => {
+  try {
+    const users = await User.find({},'id email role').sort({ createdAt: -1 });
+    res.status(200).send(users);
+  } catch (error) {
+    console.error("Error getting users:", error);
+    res.status(400).send({ message: "Error getting users" });
+  }
+});
+
+// //^ protected route endpoint
+// router.get("/users", verifyToken, async (req, res) => {
+//   res.send({ message: "Protected users" });
+// })
 
 module.exports = router;
