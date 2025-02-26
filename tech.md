@@ -22,6 +22,7 @@
 [cookie-parser](https://www.npmjs.com/package/cookie-parser)
 [body-parser](https://www.npmjs.com/package/body-parser)
 [bcrypt](https://www.npmjs.com/package/bcrypt)
+[jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)
 
 </div>
 </div>
