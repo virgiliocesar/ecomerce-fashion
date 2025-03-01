@@ -1,12 +1,18 @@
 import { useState } from "react"
 import { Link } from "react-router"
+import { useNavigate } from 'react-router'
+import { useRegisterUserMutation } from "../redux/features/auth/authApi"
 
 const Register = () => {
   const [message, setMessage] = useState('')
   const [username, setUserName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const handleLogin = async (e) => {
+
+  const [registerUser, { isLoading }] = useRegisterUserMutation()
+  const navigate = useNavigate()
+
+  const handleRegister = async (e) => {
     e.preventDefault()
 
     alert('Cadastro efetuado com sucesso')
@@ -15,13 +21,21 @@ const Register = () => {
       email,
       password
     }
+    try {
+      await registerUser(data).unwrap()
+      alert('Registro efetuado com sucesso')
+      navigate('/login')
+    } catch (error) {
+      setMessage("verifique os dados e tente novamente...")
+    }
   }
+  
 
   return (
     <section className=" h-screen flex items-center justify-center">
       <div className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow">
         <h2 className="mb-2 text-2xl font-semibold pt-5">Cadastro</h2>
-        <form onSubmit={handleLogin} className="space-y-5 max-w-sm mx-auto pt-8">
+        <form onSubmit={handleRegister} className="space-y-5 max-w-sm mx-auto pt-8">
 
           <input
             onChange={(e) => setUserName(e.target.value)}
