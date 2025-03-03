@@ -16,7 +16,7 @@ const Banner = () => {
           <Link to="/shop">Explore agora </Link>
         </button>
       </div>
-      <div class="header__image">
+      <div className="header__image">
         <img src={bannerImg} alt="banner image" />
       </div>
     </div>
