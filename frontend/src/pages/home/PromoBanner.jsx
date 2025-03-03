@@ -14,7 +14,7 @@ const PromoBanner = () => {
               <p>E-commerce tem um sistema de avaliações onde os clientes podem compartilhar feedbacks.</p>
           </div>
           <div className="banner__card">
-              <span><i class="ri-user-voice-fill"></i></span>
+              <span><i className="ri-user-voice-fill"></i></span>
               <h4>Suporte forte e eficiente.</h4>
               <p>Serviço de suporte ao cliente para ajudar os clientes com consultas e problemas.</p>
           </div>

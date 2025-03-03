@@ -26,6 +26,7 @@ const Login = () => {
     try {
       const response = await loginUsers(data).unwrap()
       // console.log(response);
+      const{token, user} = response
       alert('Login efetuado com sucesso')
       navigate('/')
     } catch (error) {
