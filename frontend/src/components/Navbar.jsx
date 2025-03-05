@@ -11,6 +11,11 @@ const Navbar = () => {
   }
 
 
+  //^ show user if logged in
+
+  // const dispatch = useDispatch();
+  const { user } = useState((state) => state.auth);
+  console.log(user);
 
   return (
     <header className="fixed-nav-bar w-nav">
