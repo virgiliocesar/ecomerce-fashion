@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const { Schema, model } = mongoose; 
+const { Schema, model } = mongoose;
 
 //^ Definition of Product Schema
 const productSchema = new Schema({
@@ -12,13 +12,13 @@ const productSchema = new Schema({
   category: {
     type: String,
     required: [true, "A categoria do produto é obrigatória."],
-    trim: true, 
+    trim: true,
     minlength: [3, "A categoria do produto deve ter pelo menos 3 caracteres."],
   },
   description: {
     type: String,
     required: [true, "A descrição do produto é obrigatória."],
-    trim: true, 
+    trim: true,
     minlength: [3, "A descrição do produto deve ter pelo menos 3 caracteres."],
   },
   price: {
