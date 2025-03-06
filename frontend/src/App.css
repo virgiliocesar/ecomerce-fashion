@@ -783,4 +783,16 @@ color: white;
   color: oklch(0.585 0.233 277.117);
   cursor: pointer;
 }
-
+.p-2 {
+    padding: calc(var(--spacing) * 2) /* 0.5rem = 8px */;
+}
+.space-y-4 {
+    :where(& > :not(:last-child)) {
+        --tw-space-y-reverse: 0;
+        margin-block-start: calc(calc(var(--spacing) * 4) /* 1rem = 16px */ * var(--tw-space-y-reverse));
+        margin-block-end: calc(calc(var(--spacing) * 4) /* 1rem = 16px */ * calc(1 - var(--tw-space-y-reverse)));
+    }
+}
+.mt-3 {
+    margin-top: calc(var(--spacing) * 3) /* 0.75rem = 12px */;
+}
