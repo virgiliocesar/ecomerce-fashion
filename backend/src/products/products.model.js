@@ -46,7 +46,7 @@ const productSchema = new Schema({
     ref: "User",
     required: [true, "O autor do produto é obrigatório."],
   },
-});
+},{ timestamps: true });
 
 
 const Products = model("Product", productSchema);
