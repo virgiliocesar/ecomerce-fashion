@@ -1,5 +1,5 @@
-import { createApi } from "@reduxjs/toolkit/query/react";
-import { getBaseUrl } from "../../utils/baseUrl";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { getBaseUrl } from "../../../utils/baseUrl";
 
 const productsApi = createApi({
   reducerPath: "productsApi",
@@ -28,7 +28,7 @@ const productsApi = createApi({
         }).toString();
         return `/?${queryParams}`;
       },
-      providerTags: ["Product"],
+      providesTags: ["Products"],
     }),
 
     fetchProductById: builder.query({
@@ -65,7 +65,8 @@ const productsApi = createApi({
         method: "DELETE",
         credentials: "include",
       }),
-      invalidatesTags: (result, error, id) => [{ type: "Products", id }],
+        invalidatesTags: (result, error, id) => (result ? [{ type: "Products" }] : []),
+
     }),
   }),
 });

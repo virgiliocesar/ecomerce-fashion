@@ -3,7 +3,7 @@ import cartReducer from "./features/cart/cartSlice"
 
 import authApi from "./features/auth/authApi"
 import authReducer from "./features/auth/authSlice"
-import productsApi from "./products/productsApp";
+import productsApi from "./features/products/productsApp";
 
 export const store = configureStore({
     reducer: {
