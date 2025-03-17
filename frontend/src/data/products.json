@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    "_id": 1,
     "name": "Bolsa de couro",
     "category": "acessórios",
     "description": "Bolsa de couro elegante com amplo espaço de armazenamento.",
@@ -12,7 +12,7 @@
     "author": "admin"
   },
   {
-    "id": 2,
+    "_id": 2,
     "name": "Vestido de noite",
     "category": "vestidos",
     "description": "Vestido de noite elegante para ocasiões especiais.",
@@ -23,7 +23,7 @@
     "rating": 4.0
   },
   {
-    "id": 3,
+    "_id": 3,
     "name": "Colar de ouro",
     "category": "jóias",
     "description": "Colar de ouro requintado com design intrincado.",
@@ -33,7 +33,7 @@
     "rating": 4.7
   },
   {
-    "id": 4,
+    "_id": 4,
     "name": "Batom fosco",
     "category": "cosméticos",
     "description": "Long-lasting matte lipstick in various shades.",
@@ -43,7 +43,7 @@
     "rating": 4.2
   },
   {
-    "id": 5,
+    "_id": 5,
     "name": "Lenço de seda",
     "category": "acessórios",
     "description": "Lenço de seda luxuoso com cores vibrantes.",
@@ -54,7 +54,7 @@
     "rating": 4.3
   },
   {
-    "id": 6,
+    "_id": 6,
     "name": "Vestido de coquetel",
     "category": "vestidos",
     "description": "Vestido de cocktail chique para festas e eventos.",
@@ -64,7 +64,7 @@
     "rating": 4.4
   },
   {
-    "id": 7,
+    "_id": 7,
     "name": "Brincos de diamante",
     "category": "jóias",
     "description": "Sparkling diamond earrings that add elegance to any outfit.",
@@ -75,7 +75,7 @@
     "rating": 4.8
   },
   {
-    "id": 8,
+    "_id": 8,
     "name": "Foundation",
     "category": "cosméticos",
     "description": "High-coverage foundation for a flawless finish.",
@@ -85,7 +85,7 @@
     "rating": 4.1
   },
   {
-    "id": 9,
+    "_id": 9,
     "name": "Óculos de sol",
     "category": "acessórios",
     "description": "Trendy sunglasses with UV protection.",
@@ -95,7 +95,7 @@
     "rating": 4.6
   },
   {
-    "id": 10,
+    "_id": 10,
     "name": "Calças casuais",
     "category": "vestidos",
     "description": "Comfortable maxi dress for casual outings.",

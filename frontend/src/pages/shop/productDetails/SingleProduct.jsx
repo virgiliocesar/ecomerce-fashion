@@ -1,87 +1,86 @@
-import { Link, useParams } from "react-router"; // Corrigi o import para "react-router-dom"
-import RatingStars from './../../../components/RatingStars';
-import { useDispatch } from "react-redux";
-import { addToCart } from "../../../redux/features/cart/cartSlice";
-import products from '../../../data/products';
+import React from 'react'
+import { Link, useParams } from 'react-router'
+import RatingStars from '../../../components/RatingStars';
+import { useDispatch } from "react-redux"
+import { useFetchProductByIdQuery } from '../../../redux/features/products/productsApi';
+import { addToCart } from '../../../redux/features/cart/cartSlice';
+import ReviewsCard from '../reviews/ReviewsCard';
 
 const SingleProduct = () => {
-    const { id } = useParams(); // Obtém o ID do produto da URL
+    const { id } = useParams();
+
     const dispatch = useDispatch();
+    const { data, error, isLoading } = useFetchProductByIdQuery(id);
 
-    const product = products.find((p) => p.id === parseInt(id));
+    const singleProduct = data?.product || {};
+    const productReviews = data?.reviews || [];
 
-    // Se o produto não for encontrado, exibe uma mensagem
-    if (!product) {
-        return <div>Produto não encontrado</div>;
+    const handleAddToCart = (product) => {
+        dispatch(addToCart(product))
     }
 
-    const handleAddToCart = () => {
-        dispatch(addToCart(product));
-    };
+    if (isLoading) return <p>Loading...</p>
+    if (error) return <p>Error loading product details.</p>
 
     return (
         <>
-            <section className="section__container bg-primary-light">
-                <h2 className="section__header capitalize">página de produto único</h2>
-
-                <div className="section__subheader space-x-2">
-                    <span className="hover-text-primary">
-                        <Link to="/">Home</Link>
-                        <i className="ri-arrow-right-s-line"></i>
-                    </span>
-                    <span className="hover-text-primary">
-                        <Link to="/shop">Shop</Link>
-                        <i className="ri-arrow-right-s-line"></i>
-                    </span>
-                    <span className="hover-text-primary">
-                        página do produto
-                    </span>
+            <section className='section__container bg-primary-light'>
+                <h2 className='section__header capitalize'>Single Product Page</h2>
+                <div className='section__subheader space-x-2'>
+                    <span className='hover:text-primary'><Link to="/">home</Link></span>
+                    <i className="ri-arrow-right-s-line"></i>
+                    <span className='hover:text-primary'><Link to="/shop">shop</Link></span>
+                    <i className="ri-arrow-right-s-line"></i>
+                    <span className='hover:text-primary'>{singleProduct.name}</span>
                 </div>
             </section>
 
-            <section className="section__container">
-                {/* single product */}
-                <div className="flex flex-col items-center md:flex-row gap-8">
-                    <div className="md:w-1/2 w-full">
-                        <img src={product.image} alt={product.name} />
+            <section className='section__container mt-8'>
+                <div className='flex flex-col items-center md:flex-row gap-8'>
+                    {/* product image */}
+                    <div className='md:w-1/2 w-full'>
+                        <img src={singleProduct?.image} alt=""
+                            className='rounded-md w-full h-auto'
+                        />
                     </div>
-                    <div className="md:w-1/2 w-full">
-                        <h3 className="text-2xl font-semibold mb-4">{product.name}</h3>
-                        <p className="text-xl text-primary mb-4">
-                            R${product.price.toFixed(2)} {/* Formata o preço com 2 casas decimais */}
-                            {product.oldPrice && ( // Exibe o preço antigo se existir
-                                <s>R${product.oldPrice.toFixed(2)}</s>
-                            )}
-                        </p>
-                        <p className="text-gray-400 mb-4">{product.description}</p>
 
-                        {/* Informações adicionais do produto */}
-                        <div className="mb-4">
-                            <p><strong>Categoria: </strong>{product.category}</p>
-                            <p><strong>Cor: </strong>{product.color}</p>
-                            <div className="flex gap-1 items-center">
-                                <strong>Avaliação: </strong>
-                                <RatingStars rating={product.rating} />
+                    <div className='md:w-1/2 w-full'>
+                        <h3 className='text-2xl font-semibold mb-4'>{singleProduct?.name}</h3>
+                        <p className='text-xl text-primary mb-4 space-x-1'>
+                            ${singleProduct?.price}
+                            {singleProduct?.oldPrice && <s className='ml-1'>${singleProduct?.oldPrice}</s>}
+                        </p>
+                        <p className='text-gray-400 mb-4'>{singleProduct?.description}</p>
+
+                        {/* additional product info */}
+                        <div className='flex flex-col space-y-2'>
+                            <p><strong>Category:</strong> {singleProduct?.category}</p>
+                            <p><strong>Color:</strong> {singleProduct?.color}</p>
+                            <div className='flex gap-1 items-center'>
+                                <strong>Rating: </strong>
+                                <RatingStars rating={singleProduct?.rating} />
                             </div>
+
                         </div>
+
                         <button
-                            onClick={handleAddToCart}
-                            className="btn"
-                        >
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                handleAddToCart(singleProduct)
+                            }}
+                            className='mt-6 px-6 py-3 bg-primary text-white rounded-md cursor-pointer'>
                             Comprar
                         </button>
                     </div>
                 </div>
             </section>
 
-            {/* Exibir avaliações */}
-            <section className="section__container">
-                <h3 className="text-2xl font-semibold mb-4">Avaliações</h3>
-                {/* TODO: Adicionar funcionalidade de avaliações */}
-                <p>Nenhuma avaliação disponível no momento.</p>
+            {/* display Reviews */}
+            <section className='section__container mt-8'>
+                <ReviewsCard productReviews={productReviews} />
             </section>
         </>
-    );
-};
+    )
+}
 
-export default SingleProduct;
+export default SingleProduct
