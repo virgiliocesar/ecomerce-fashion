@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 
-import productsData from '../../data/products'
 import ProductCards from "./ProductCards"
 import ShopFiltering from "./ShopFiltering"
+
+import { useFetchAllProductsQuery } from '../../redux/features/products/productsApi'
 
 const filters = {
     categories: ['ver tudo', 'acessórios', 'vestidos', 'jóias', 'cosméticos'],
@@ -16,41 +17,28 @@ const filters = {
 }
 
 const ShopPage = () => {
-    const [products, setProducts] = useState(productsData)
     const [filtersState, setFiltersState] = useState({
         category: 'ver tudo',
         color: 'ver tudo',
         priceRange: ''
     })
 
-    //filtering functions
-    const applyFilter = () => {
-        let filteredProducts = productsData
-        //filter by category
-        if (filtersState.category && filtersState.category !== 'ver tudo') {
-            filteredProducts = filteredProducts.filter((product) => product.category === filtersState.category)
+    const [currentPage, setCurrentPage] = useState(1)
+    const [ProductsPerPage] = useState(8)
 
-        }
+    const { category, color, priceRange } = filtersState
+    const [minPrice, maxPrice] = priceRange.split('-').map(Number)
+    const {data:{products = [],totalPages,totalProducts} = {},error, isLoading} = useFetchAllProductsQuery({
+        category: category !== 'ver tudo' ? category : '',
+        color: color!== 'ver tudo'? color : '',
+        minPrice: isNaN(minPrice) ? '' : minPrice,
+        maxPrice: isNaN(maxPrice) ? '' : maxPrice,
+        page: currentPage,
+        limit: ProductsPerPage,
+    })
 
-        //filter by color
-        if (filtersState.color && filtersState.color !== 'ver tudo') {
-            filteredProducts = filteredProducts.filter((product) => product.color === filtersState.color)
-        }
 
-        //filter by price range
-        if (filtersState.priceRange) {
-            const [minPrice, maxPrice] = filtersState.priceRange.split('-').map(Number)
-            filteredProducts = filteredProducts.filter((product) => product.price >= minPrice && product.price <= maxPrice)
-        }
-
-        setProducts(filteredProducts)
-
-    }
-    useEffect(() => {
-        applyFilter()
-    }, [filtersState])
-    
-    //clear the filters
+    //^ clear the filters
    const clearFilters = () => {
         setFiltersState({
             category: 'ver tudo',
@@ -58,6 +46,12 @@ const ShopPage = () => {
             priceRange: ''
         })
     }
+
+    if(isLoading) return <h1>Loading...</h1>
+    if (error) return <h1>Error: {error.error}</h1>
+
+    const startProduct = (currentPage - 1) * ProductsPerPage + 1
+    const endProduct = startProduct + products.length - 1
 
     return (
         <>
@@ -75,11 +69,40 @@ const ShopPage = () => {
                         filtersState={filtersState}
                         setFiltersState={setFiltersState}
                         clearFilters={clearFilters} />
-                    
+
                     {/* <!-- right side --> */}
                     <div>
-                        <h3 className="text-1 font-medium mb-4">Produtos disponíveis:</h3>
+                        <h3 className="text-1 font-medium mb-4">Mostrando {startProduct} para {endProduct} de {totalProducts} produtos </h3>
                         <ProductCards products={products} />
+
+                        {/* pagination */}
+
+                        <div className="mt-6 flex justify-center">
+                            <button
+                                disabled={currentPage === 1}
+                                onClick={() => setCurrentPage(currentPage - 1)}
+                                className="px-4 py-1.5 bg-gray-300 text-gray-700 rounded-md mr-2 cursor-pointer"
+                            >Anterior</button>
+
+                            {[
+                                ...Array(totalPages)].map((_, index) => (
+                                <button key={index}
+                                    onClick={() => setCurrentPage(index + 1)}
+                                        className={`px-4 py-1.5 bg-gray-300 text-gray-700 rounded-md mr-2 cursor-pointer
+                                        ${index + 1 === currentPage ? 'bg-primary text-white' : ''}
+                                    `}
+                                >{index + 1}</button>
+                            ))
+                            }
+
+                            <button
+                                disabled={currentPage === totalPages}
+                                onClick={() => setCurrentPage(currentPage + 1)}
+                                className="px-4 py-1.5 bg-gray-300 text-gray-700 rounded-md mr-2 cursor-pointer"
+                            >Próximo</button>
+
+
+                        </div>
                     </div>
                 </div>
             </section>

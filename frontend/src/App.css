@@ -796,3 +796,9 @@ color: white;
 .mt-3 {
     margin-top: calc(var(--spacing) * 3) /* 0.75rem = 12px */;
 }
+.mt-6 {
+    margin-top: calc(var(--spacing) * 6) /* 1.5rem = 24px */;
+}
+.ml-2 {
+    margin-left: calc(var(--spacing) * 2) /* 0.5rem = 8px */;
+}
