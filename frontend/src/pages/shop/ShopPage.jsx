@@ -28,9 +28,9 @@ const ShopPage = () => {
 
     const { category, color, priceRange } = filtersState
     const [minPrice, maxPrice] = priceRange.split('-').map(Number)
-    const {data:{products = [],totalPages,totalProducts} = {},error, isLoading} = useFetchAllProductsQuery({
+    const { data: { products = [], totalPages, totalProducts } = {}, error, isLoading } = useFetchAllProductsQuery({
         category: category !== 'ver tudo' ? category : '',
-        color: color!== 'ver tudo'? color : '',
+        color: color !== 'ver tudo' ? color : '',
         minPrice: isNaN(minPrice) ? '' : minPrice,
         maxPrice: isNaN(maxPrice) ? '' : maxPrice,
         page: currentPage,
@@ -39,7 +39,7 @@ const ShopPage = () => {
 
 
     //^ clear the filters
-   const clearFilters = () => {
+    const clearFilters = () => {
         setFiltersState({
             category: 'ver tudo',
             color: 'ver tudo',
@@ -47,7 +47,7 @@ const ShopPage = () => {
         })
     }
 
-    if(isLoading) return <h1>Loading...</h1>
+    if (isLoading) return <h1>Loading...</h1>
     if (error) return <h1>Error: {error.error}</h1>
 
     const startProduct = (currentPage - 1) * ProductsPerPage + 1
@@ -86,13 +86,13 @@ const ShopPage = () => {
 
                             {[
                                 ...Array(totalPages)].map((_, index) => (
-                                <button key={index}
-                                    onClick={() => setCurrentPage(index + 1)}
+                                    <button key={index}
+                                        onClick={() => setCurrentPage(index + 1)}
                                         className={`px-4 py-1.5 bg-gray-300 text-gray-700 rounded-md mr-2 cursor-pointer
                                         ${index + 1 === currentPage ? 'bg-primary text-white' : ''}
                                     `}
-                                >{index + 1}</button>
-                            ))
+                                    >{index + 1}</button>
+                                ))
                             }
 
                             <button
