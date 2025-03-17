@@ -75,7 +75,7 @@ const SingleProduct = () => {
                 </div>
             </section>
 
-            {/* display Reviews */}
+            {/* display Review */}
             <section className='section__container mt-8'>
                 <ReviewsCard productReviews={productReviews} />
             </section>

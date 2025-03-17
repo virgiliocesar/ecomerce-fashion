@@ -25,9 +25,10 @@ app.use(
 //all routes
 const authRules = require("./src/users/user.route");
 const productRoutes = require("./src/products/products.route.js");
-
+const reviewRoutes = require("./src/reviews/reviews.router.js");
 app.use("/api/auth", authRules);
-app.use("/api/products",productRoutes);
+app.use("/api/products", productRoutes);
+app.use("/api/reviews", reviewRoutes);
 
 
 main()
