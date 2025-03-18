@@ -802,3 +802,15 @@ color: white;
 .ml-2 {
     margin-left: calc(var(--spacing) * 2) /* 0.5rem = 8px */;
 }
+.mt-8 {
+    margin-top: calc(var(--spacing) * 8) /* 2rem = 32px */;
+}
+.mt-12 {
+    margin-top: calc(var(--spacing) * 12) /* 3rem = 48px */;
+}
+.my-6 {
+    margin-block: calc(var(--spacing) * 6) /* 1.5rem = 24px */;
+}.size-14 {
+    width: calc(var(--spacing) * 14) /* 3.5rem = 56px */;
+    height: calc(var(--spacing) * 14) /* 3.5rem = 56px */;
+}

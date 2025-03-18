@@ -37,8 +37,8 @@ const ReviewsCard = ({ productReviews }) => {
                                                 <RatingStars rating={review?.rating} />
                                             </div>
                                         </div>
-                                        <div className='text-gray-600 mt-5  border p-8'>
-                                            <p className='md:w-4/5'>{review?.comment}</p>
+                                        <div className='text-gray-200 mt-5 border rounded-md p-8'>
+                                            <p className='md:w-4/5 text-gray-600'>{review?.comment}</p>
                                         </div>
                                     </div>
                                 ))

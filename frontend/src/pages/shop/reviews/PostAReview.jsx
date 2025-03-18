@@ -28,7 +28,7 @@ const PostAReview = ({ isModalOpen, handleClose }) => {
         try {
 
             const response = await postReview(newComment).unwrap();
-            alert("Comment posted successfully!")
+            alert("Comentário postado com sucesso!")
             setComment('');
             setRating(0);
             refetch();
