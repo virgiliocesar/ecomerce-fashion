@@ -15,7 +15,7 @@ export const cartSlice = createSlice({
   reducers: {
     addToCart: (state, action) => {
       const isExist = state.products.find(
-        (product) => product.id === action.payload.id
+        (product) => product._id === action.payload._id
       );
       if (!isExist) {
         state.products.push({ ...action.payload, quantity: 1 });
@@ -27,7 +27,7 @@ export const cartSlice = createSlice({
     },
     updateQuantity: (state, action) => {
       state.products = state.products.map((product) => {
-        if (product.id === action.payload.id) {
+        if (product._id === action.payload.id) {
           if (action.payload.type === "increment") {
             product.quantity += 1;
           } else if (
@@ -46,7 +46,7 @@ export const cartSlice = createSlice({
     },
     removeFromCart: (state, action) => {
       state.products = state.products.filter(
-        (product) => product.id !== action.payload.id
+        (product) => product._id !== action.payload.id
       );
       state.selectedItems = setSelectedItems(state);
       state.totalPrice = setTotalPrice(state);

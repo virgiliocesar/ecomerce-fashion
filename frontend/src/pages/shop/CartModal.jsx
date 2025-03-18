@@ -10,7 +10,7 @@ const CartModal = ({ products, isOpen, onClose }) => {
         dispatch(updateQuantity({ type, id }));
     };
 
-    const handleRemove = (id) => {
+    const handleRemove = (e,id) => {
         console.log("Removing item with ID:", id); // Depuração
         dispatch(removeFromCart({ id }));
     };
@@ -40,7 +40,7 @@ const CartModal = ({ products, isOpen, onClose }) => {
                             <div>Carrinho vazio</div>
                         ) : (
                             products.map((item, index) => (
-                                <div key={item.id || index} className="flex flex-col md:flex-row md:items-center md:justify-between shadow-md md:p-5 p-2 mb-4">
+                                <div key={item._id || index} className="flex flex-col md:flex-row md:items-center md:justify-between shadow-md md:p-5 p-2 mb-4">
                                     <div className="flex items-center">
                                         <span className="bg-primary text-white pad-5 rounded-r-full mr-4">0{index + 1}</span>
                                         <img src={item.image} alt="" className="size-12 object-cover mr-4" />
@@ -52,18 +52,18 @@ const CartModal = ({ products, isOpen, onClose }) => {
 
                                     <div className="flex flex-row md:justify-start justify-end items-center mt-2">
                                         <button
-                                            onClick={() => handleQuantity('decrement', item.id)}
+                                            onClick={() => handleQuantity('decrement', item._id)}
                                             className="size-6 flex items-center justify-center px-1.5 rounded-full bg-gray-200 text-gray-700 bg-primary-cart cursor-pointer ml-8">
                                             -
                                         </button>
                                         <span className="px-2 text-center mx-1">{item.quantity}</span>
                                         <button
-                                            onClick={() => handleQuantity('increment', item.id)}
+                                            onClick={() => handleQuantity('increment', item._id)}
                                             className="size-6 flex items-center justify-center px-1.5 rounded-full bg-gray-200 text-gray-700 bg-primary-cart cursor-pointer">
                                             +
                                         </button>
                                         <button
-                                            onClick={() => handleRemove(item.id)}
+                                            onClick={(e) => handleRemove(e,item._id)}
                                             className="text-red-500 hover:text-red-800 cursor-pointer ml-8">
                                             Remover
                                         </button>
