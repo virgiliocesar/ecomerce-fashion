@@ -28,7 +28,7 @@ const ProductCards = ({ products }) => {
                                 e.stopPropagation()
                                 handleAddToCart(product)
                             }}>
-                                <i className="ri-shopping-cart-line bg-primary p-1.5 pad-10 
+                                <i className="ri-shopping-cart-line bg-primary p-1.5 pad-10
                                 text-white hover:bg-primary-dark cursor-pointer"></i>
                             </button>
                         </div>
@@ -44,5 +44,4 @@ const ProductCards = ({ products }) => {
         </div>
     );
 };
-
 export default ProductCards;
