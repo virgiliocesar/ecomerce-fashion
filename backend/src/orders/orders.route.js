@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
+//^ create checkout session
 router.post("/create-checkout-session", async (req, res) => {
   const { products } = req.body;
   try {
@@ -37,3 +38,42 @@ router.post("/create-checkout-session", async (req, res) => {
     res.status(500).json({ message: "Error adding products" });
   }
 });
+
+//^ confirm paymant
+
+router.post("/confirm-payment", async (req, res) => {
+  const { session_id } = req.body;
+  try {
+    const session = await stripe.checkout.sessions.retrieve(session_id, {
+      expand: ["line_items", "payment_intent"],
+    });
+    const paymentIntentId = session.payment_intent.id;
+    let order = await Order.findOne({ orderId: paymentIntentId });
+
+    if (!order) {
+      const lineItems = session.line_items.data.map((item) => {
+        (productId = item.price.product), (quantity = item.quantity);
+      });
+
+      const amount = session.amount_total / 100;
+      order = new Order({
+        orderId: paymentIntentId,
+        amount,
+        products: lineItems,
+        email: session.customer_details.email,
+        status:
+          session.payment_intent.status === "succeeded" ? "paid" : "failed",
+      });
+    } else {
+      order.status =
+        session.payment_intent.status === "succeeded" ? "paid" : "failed";
+    }
+    await order.save();
+    res.json(order);
+  } catch (error) {
+    console.error("Error confirming payment:", error);
+    res.status(500).json({ message: "Error confirming payment" });
+  }
+});
+
+module.exports = router;

@@ -22,11 +22,16 @@
 [cors](https://www.npmjs.com/package/cors)
 [cookie-parser](https://www.npmjs.com/package/cookie-parser)
 [body-parser](https://www.npmjs.com/package/body-parser)
+
+##### segurança
 [bcrypt](https://www.npmjs.com/package/bcrypt)
 [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)
 
-#### opcional caso não queira usar metodo nativo de leitura .env e watch do node
+##### opcional caso não queira usar metodo nativo de leitura .env e watch do node
 [dotenv](https://www.npmjs.com/package/dotenv) *opcional*
 [nodemon]([https://nodemonjs.)*opcional*
+
+##### integração com stripe
+[stripe](https://docs.stripe.com/payments/quickstart)
 </div>
 </div>
