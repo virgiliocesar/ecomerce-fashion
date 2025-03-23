@@ -45,14 +45,14 @@ router.post("/confirm-payment", async (req, res) => {
     const session = await stripe.checkout.sessions.retrieve(session_id, {
       expand: ["line_items", "payment_intent"],
     });
-    const paymentIntentId = session.payment_intent?.id;
+    const paymentIntentId = session.payment_intent.id;
     let order = await Order.findOne({ orderId: paymentIntentId });
 
     if (!order) {
-      const lineItems = session.line_items.data.map((item) => {
-        productId = item.price.product,
-        quantity = item.quantity;
-      });
+      const lineItems = session.line_items.data.map((item) => ({
+        productId: item.price.product,
+        quantity: item.quantity,
+      }));
 
       const amount = session.amount_total / 100;
       order = new Order({
@@ -61,17 +61,17 @@ router.post("/confirm-payment", async (req, res) => {
         products: lineItems,
         email: session.customer_details.email,
         status:
-          session.payment_intent.status === "succeeded" ? "pending" : "failed",
+          session.payment_intent.status === "succeeded" ? "pendente" : "failed",
       });
     } else {
       order.status =
-        session.payment_intent.status === "succeeded" ? "pending" : "failed";
+        session.payment_intent.status === "succeeded" ? "pendente" : "failed";
     }
     await order.save();
-    res.json(order);
+    res.json({order});
   } catch (error) {
     console.error("Error confirming payment:", error);
-    res.status(500).json({ message: "Error confirming payment" });
+    res.status(500).json({ error: "Error confirming payment" });
   }
 });
 

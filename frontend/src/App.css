@@ -813,4 +813,6 @@ color: white;
 }.size-14 {
     width: calc(var(--spacing) * 14) /* 3.5rem = 56px */;
     height: calc(var(--spacing) * 14) /* 3.5rem = 56px */;
+}.mb-8 {
+    margin-bottom: calc(var(--spacing) * 8) /* 2rem = 32px */;
 }

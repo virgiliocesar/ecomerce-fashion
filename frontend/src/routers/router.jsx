@@ -8,6 +8,7 @@ import SingleProduct from "../pages/shop/productDetails/SingleProduct";
 import Login from "../components/Login";
 import Register from "../components/Register";
 import EmDesenvolvimento from "../components/EmDesenvolvimento";
+import PaymentSuccess from "../components/PaymentSuccess";
 
 
 
@@ -42,7 +43,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/success",
-                element: <div>Payment</div>}
+                element: <PaymentSuccess />}
         ]
     },
     {
