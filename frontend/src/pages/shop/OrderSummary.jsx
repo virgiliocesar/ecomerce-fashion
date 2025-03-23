@@ -1,12 +1,15 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { clearCart } from '../../redux/features/cart/cartSlice';
-import { useNavigate } from 'react-router'; // Para redirecionar o usuário
+
+import { loadStripe } from "@stripe/stripe-js";
+import { getBaseUrl } from '../../utils/baseUrl';
 
 const OrderSummary = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate(); // Hook para redirecionamento
+  const { user } = useSelector((store) => store.auth);
 
-  // Seleciona os dados do carrinho do estado global
+  const products = useSelector((store) => store.cart.products);
+
   const {
     selectedItems,
     totalPrice,
@@ -15,19 +18,38 @@ const OrderSummary = () => {
     grandTotalPrice
   } = useSelector((store) => store.cart);
 
-  // Função para limpar o carrinho
+  //^ clear cart
   const handleClearCart = () => {
     dispatch(clearCart());
   };
 
-  // Função para ir para o checkout
-  const handleCheckout = () => {
-    if (selectedItems > 0) {
-      navigate('/checkout'); // Redireciona para a página de checkout
-    } else {
-      alert("Seu carrinho está vazio!"); // Feedback para carrinho vazio
+  //^ payment integration
+  const makePayment = async (e) => {
+    const stripe = await loadStripe(import.meta.env.VITE_STRIPE_PK);
+    const body = {
+      products: products,
+      userId: user?._id,
     }
-  };
+    const headers = {
+      'Content-Type': 'application/json',
+    }
+    const response = await fetch(`${getBaseUrl()}/api/orders/create-checkout-session`, {
+      method: 'POST',
+      headers: headers,
+      body: JSON.stringify(body),
+    })
+
+    const session = await response.json();
+    console.log("session", session);
+
+    const result = await stripe.redirectToCheckout({
+      sessionId: session.id
+    })
+    console.log("result", result);
+    if (result.error) {
+      console.log("error", result.error);
+    }
+  }
 
   return (
     <div className="bg-primary-light rounded text-base">
@@ -38,10 +60,10 @@ const OrderSummary = () => {
         <p>Tax ({taxRate * 100}%): R${tax.toFixed(2)}</p>
         <h3 className='font-bold'>Valor Final: R${grandTotalPrice.toFixed(2)}</h3>
         <div className='px-4 mb-6'>
-          {/* Botão para limpar o carrinho */}
+
           <button
             onClick={(e) => {
-              e.stopPropagation(); // Evita a propagação do evento
+              e.stopPropagation();
               handleClearCart();
             }}
             className='bg-red-500 px-3 py-1.5 text-white mt-2 rounded-md flex justify-between items-center mb-4 cursor-pointer'
@@ -50,9 +72,11 @@ const OrderSummary = () => {
             <i className='ri-delete-bin-7-line'></i>
           </button>
 
-          {/* Botão para ir para o checkout */}
           <button
-            onClick={handleCheckout}
+            onClick={(e) => {
+              e.stopPropagation();
+              makePayment();
+            }}
             className='bg-green-600 px-3 py-1.5 text-white mt-2 rounded-md flex justify-between items-center mb-4 cursor-pointer'
           >
             <span className='mr-2'>Ir para Checkout</span>

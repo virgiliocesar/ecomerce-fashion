@@ -46,9 +46,7 @@ const OrderSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-// Adicionando índices para melhorar a performance
-OrderSchema.index({ orderId: 1 }, { unique: true }); // Índice único para orderId
-OrderSchema.index({ email: 1 }); // Índice para email
+
 
 const Order = mongoose.model("Order", OrderSchema);
 module.exports = Order;

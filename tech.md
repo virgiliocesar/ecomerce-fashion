@@ -2,6 +2,7 @@
 <div>
 
 #### frontend
+[vite](https://vitejs.dev/)
 [react](https://react.dev/)
 [react-router](https://reactrouter.com/start/library/installation)
 [tailwindcc](https://tailwindcss.com/docs/installation/using-vite)
