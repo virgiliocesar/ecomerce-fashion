@@ -19,7 +19,7 @@ app.use(
 );
 
 
-//all routes
+//^ all routes
 const authRules = require("./src/users/user.route");
 const productRoutes = require("./src/products/products.route.js");
 const reviewRoutes = require("./src/reviews/reviews.router.js");
@@ -37,7 +37,7 @@ main()
   .then(() => console.log("conectado ao MongoDB com sucesso"))
   .catch((err) => console.log(err));
 
-// Connect to MongoDB database
+//^ Connect to MongoDB database
 async function main() {
   await mongoose.connect(url);
 }
