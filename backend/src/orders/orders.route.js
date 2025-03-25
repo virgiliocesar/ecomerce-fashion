@@ -75,4 +75,21 @@ router.post("/confirm-payment", async (req, res) => {
   }
 });
 
+//^ Search for orders by the user's email
+router.get("/:email", async (req, res) => {
+  try {
+    const { email } = req.params;
+    const orders = await Order.find({ email: email });
+
+    if (!orders.length) {
+      return res.status(404).send({ message: "Nenhum pedido encontrado para este e-mail" });
+    }
+
+    res.status(200).send(orders);
+  } catch (error) {
+    console.error("Erro ao buscar pedidos:", error);
+    res.status(500).send({ message: "Erro ao buscar pedidos" });
+  }
+});
+
 module.exports = router;
