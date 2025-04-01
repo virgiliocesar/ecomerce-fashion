@@ -1,6 +1,6 @@
 # 🚀 Project Technology Stack
 
-<div align="center" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 2rem 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;">
+<div  style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 2rem 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;">
 
 <div style="background: #f8fafc; padding: 1.5rem; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.12);">
 
