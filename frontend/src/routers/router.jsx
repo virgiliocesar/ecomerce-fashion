@@ -9,6 +9,8 @@ import Login from "../components/Login";
 import Register from "../components/Register";
 import EmDesenvolvimento from "../components/EmDesenvolvimento";
 import PaymentSuccess from "../components/PaymentSuccess";
+import DashboardLayout from "../pages/dashboard/DashboardLayout";
+import PrivateRoute from "./PrivateRoute";
 
 
 
@@ -53,6 +55,49 @@ const router = createBrowserRouter([
     {
         path: "/register",
         element: <Register/>
+    },
+    //^dashboard routes start here
+    {
+        path: "/dashboard",
+        element: <PrivateRoute ><DashboardLayout /></PrivateRoute>, //TODO: user private routes her
+        children: [
+            //^ user routes
+            {
+                path: "",
+                element: <UserDashboard/>
+            }, {
+                path: "orders",
+                element: <EmDesenvolvimento />
+            },{
+                path: "payments",
+                element: <EmDesenvolvimento />
+            }, {
+                path: "profile",
+                element: <EmDesenvolvimento />
+            }, {
+                path: "reviews",
+                element: <EmDesenvolvimento />
+            },
+            //^ admin routes (only accessible by admin) //TODO: private routes with includes role
+            {
+                path: "admin",
+                element:<PrivateRoute role="admin"><EmDesenvolvimento /></PrivateRoute> //TODO: user private routes her <EmDesenvolvimento />
+            },  {
+                path: "add-new-post",
+                element:<PrivateRoute role="admin"><EmDesenvolvimento /></PrivateRoute> //TODO: user private routes her <EmDesenvolvimento />
+            }, {
+                path: "manage-products",
+                element: <PrivateRoute role="admin"><EmDesenvolvimento /></PrivateRoute>
+            }, {
+                path: "update-product/:id",
+                element: <PrivateRoute role="admin"><EmDesenvolvimento /></PrivateRoute>
+            }, {
+                path: "users",
+                element: <PrivateRoute role="admin"><EmDesenvolvimento /></PrivateRoute>
+            },{
+                path: "manage-orders",
+                element: <PrivateRoute role="admin"><EmDesenvolvimento /></PrivateRoute>}
+        ]
     }
 ]);
 
