@@ -64,39 +64,39 @@ const router = createBrowserRouter([
             //^ user routes
             {
                 path: "",
-                element: <UserDashboard/>
+                element: <div>User Dashboard</div>
             }, {
                 path: "orders",
-                element: <EmDesenvolvimento />
+                element: <div>User Orders</div>
             },{
                 path: "payments",
-                element: <EmDesenvolvimento />
+                element: <div>User Payments</div>
             }, {
                 path: "profile",
-                element: <EmDesenvolvimento />
+                element: <div>User Profile</div>
             }, {
                 path: "reviews",
-                element: <EmDesenvolvimento />
+                element: <div>User Reviews</div>
             },
             //^ admin routes (only accessible by admin) //TODO: private routes with includes role
             {
                 path: "admin",
-                element:<PrivateRoute role="admin"><EmDesenvolvimento /></PrivateRoute> //TODO: user private routes her <EmDesenvolvimento />
+                element: <PrivateRoute role="admin"><div>Admin Main</div></PrivateRoute> //TODO: user private routes her <EmDesenvolvimento />
             },  {
                 path: "add-new-post",
-                element:<PrivateRoute role="admin"><EmDesenvolvimento /></PrivateRoute> //TODO: user private routes her <EmDesenvolvimento />
+                element: <PrivateRoute role="admin"><div>New Post</div></PrivateRoute> //TODO: user private routes her <EmDesenvolvimento />
             }, {
                 path: "manage-products",
-                element: <PrivateRoute role="admin"><EmDesenvolvimento /></PrivateRoute>
+                element: <PrivateRoute role="admin"><div>Manage Post</div></PrivateRoute>
             }, {
                 path: "update-product/:id",
-                element: <PrivateRoute role="admin"><EmDesenvolvimento /></PrivateRoute>
+                element: <PrivateRoute role="admin"><div></div></PrivateRoute>
             }, {
                 path: "users",
-                element: <PrivateRoute role="admin"><EmDesenvolvimento /></PrivateRoute>
+                element: <PrivateRoute role="admin"><div>All Users</div></PrivateRoute>
             },{
                 path: "manage-orders",
-                element: <PrivateRoute role="admin"><EmDesenvolvimento /></PrivateRoute>}
+                element: <PrivateRoute role="admin"><div>Manage Order</div></PrivateRoute>}
         ]
     }
 ]);
