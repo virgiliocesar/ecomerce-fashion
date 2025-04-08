@@ -60,7 +60,7 @@ const UserDMain = () => {
                   Olá, {user?.username}! Bem -vindo ao seu painel de usuário
               </p>
           </div>
-          <div>User Stats</div>
+          <div>Status do usuário</div>
           <UserStats stats={stats}/>
           <div className=''>
               <Bar data={data} options={options} />

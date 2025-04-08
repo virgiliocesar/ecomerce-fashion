@@ -8,19 +8,19 @@ import { useNavigate } from 'react-router'
 const navItems = [
   {
     path: "/dashboard",
-    label:"Dashboard"
+    label:"Painel"
   }, {
     path: "orders",
-    label:"Orders"
+    label:"Pedidos"
   }, {
     path: "payments",
-    label:"payments"
+    label:"Pagamentos"
   }, {
     path: "profile",
-    label:"profile"
+    label:"Perfil"
   }, {
     path: "reviews",
-    label:"reviews"
+    label:"Avaliações"
   },
 ]
 
@@ -46,7 +46,7 @@ const UserDashboard = () => {
       <div>
         <div className='nav__logo'>
           <Link>Fashion <span>.</span></Link>
-          <p className='text-xs italic'>User dashboard</p>
+          <p className='text-xs italic'>Painel de Usuário</p>
         </div>
         <hr className='mt-5' />
         <ul className='space-y-5 pt-5'>
@@ -69,7 +69,7 @@ const UserDashboard = () => {
         <hr className='mb-3' />
         <button
           onClick={handledLogout}
-          className='cursor-pointer text-white bg-primary font-medium px-5 py-1 rounded-sm'>Logout</button>
+          className='cursor-pointer text-white bg-primary font-medium px-5 py-1 rounded-sm'>Sair</button>
       </div>
     </div>
   )

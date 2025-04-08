@@ -680,3 +680,6 @@ color: white;
     width: calc(var(--spacing) * 14) /* 3.5rem = 56px */;
     height: calc(var(--spacing) * 14) /* 3.5rem = 56px */;
 }
+.underline {
+    text-decoration-line: underline;
+}

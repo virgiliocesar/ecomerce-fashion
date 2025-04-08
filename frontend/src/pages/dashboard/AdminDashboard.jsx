@@ -8,19 +8,19 @@ import { Link, NavLink } from 'react-router'
 const navItems = [
     {
         path: "/dashboard/admin",
-        label: "Dashboard"
+        label: "Painel"
     }, {
         path: "add-new-post",
-        label: "Add New Product"
+        label: "Adicionar novo Produto"
     }, {
         path: "manage-products",
-        label: "Manage Products"
+        label: "Gerenciar Produtos"
     }, {
         path: "Users",
-        label: "Users"
+        label: "Usuários"
     }, {
         path: "manage-orders",
-        label: "Manage Orders"
+        label: "Gerenciar Pedidos"
     },
 ]
 
@@ -44,7 +44,7 @@ const AdminDashboard = () => {
           <div>
               <div className='nav__logo'>
                   <Link>Fashion <span>.</span></Link>
-                  <p className='text-xs italic'>User dashboard</p>
+                  <p className='text-xs italic'>Painel de Usuário</p>
               </div>
               <hr className='mt-5' />
               <ul className='space-y-5 pt-5'>
@@ -67,7 +67,7 @@ const AdminDashboard = () => {
               <hr className='mb-3' />
               <button
                   onClick={handledLogout}
-                  className='cursior-pointer text-white bg-primary font-medium px-5 py-1 rounded-sm'>Logout</button>
+                  className='cursior-pointer text-white bg-primary font-medium px-5 py-1 rounded-sm'>Sair</button>
           </div>
       </div>
   )
