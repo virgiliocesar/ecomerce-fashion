@@ -11,6 +11,7 @@ import EmDesenvolvimento from "../components/EmDesenvolvimento";
 import PaymentSuccess from "../components/PaymentSuccess";
 import DashboardLayout from "../pages/dashboard/DashboardLayout";
 import PrivateRoute from "./PrivateRoute";
+import UserDMain from "../pages/dashboard/users/dashboard/UserDMain";
 
 
 
@@ -64,7 +65,7 @@ const router = createBrowserRouter([
             //^ user routes
             {
                 path: "",
-                element: <div>User Dashboard</div>
+                element: <UserDMain/>
             }, {
                 path: "orders",
                 element: <div>User Orders</div>

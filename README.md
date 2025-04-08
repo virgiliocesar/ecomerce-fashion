@@ -7,10 +7,12 @@
 ## 🌈 Frontend
 
 ### ⚡ Core Framework
+
 - ![Vite](https://img.shields.io/badge/-Vite-646CFF?logo=vite&logoColor=white) [Vite](https://vitejs.dev/) - Blazing fast build tool  
 - ![React](https://img.shields.io/badge/-React-61DAFB?logo=react&logoColor=white) [React](https://react.dev/) - Component-based UI library  
 - ![React Router](https://img.shields.io/badge/-React_Router-CA4245?logo=react-router&logoColor=white) [React Router](https://reactrouter.com/) - Navigation system  
-
+- ![Chart.js](https://img.shields.io/badge/-Chart.js-FF6384?logo=chartdotjs&logoColor=white) [Chart.js](https://www.chartjs.org/) - Simple yet flexible JavaScript charting for designers & developers
+- ![rect-chartjs-2](https://img.shields.io/badge/-react-chartjs-2-FFCE56?logo=react-chartjs-2&logoColor=white) [react-chartjs-2](https://www.npmjs.com/package/react-chartjs-2) - React wrapper for Chart.js
 ### 🎨 Styling & Assets
 - ![Tailwind CSS](https://img.shields.io/badge/-Tailwind_CSS-38B2AC?logo=tailwind-css&logoColor=white) [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS  
 - ![RemixIcon](https://img.shields.io/badge/-RemixIcon-000000?logo=remix&logoColor=white) [RemixIcon](https://remixicon.com/) - Beautiful icons  
