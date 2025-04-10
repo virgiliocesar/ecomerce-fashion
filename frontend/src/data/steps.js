@@ -1,13 +1,13 @@
 const steps = [
   {
-    status: "pending",
-    label: "Pending",
+    status: "pendente",
+    label: "Pendente",
     description: "Your order has been created and is awaiting processing.",
     icon: { iconName: "time-line", bgColor: "red-500", textColor: "gray-800" },
   },
   {
-    status: "processing",
-    label: "Processing",
+    status: "processando",
+    label: "Processabndo",
     description: "Your order is currently being processed.",
     icon: {
       iconName: "loader-line",

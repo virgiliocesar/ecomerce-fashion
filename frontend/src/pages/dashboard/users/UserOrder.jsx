@@ -8,7 +8,7 @@ const UserOrder = () => {
     const { user } = useSelector((state) => state.auth)
     const { data: orderdata, error, isLoading } = useGetOrdersByEmailQuery(user?.email)
     const orders = orderdata?.orders
-    
+
     if (isLoading) return <div className='text-center text-gray-500'>Loading...</div>
     if(error) return <div className='text-center text-gray-500'>No orders avaliable</div>
 
@@ -68,22 +68,20 @@ const UserOrder = () => {
                                               }
                                           </td>
                                           <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                              <span className={`p-1 rounded ${order?.status === 'completo'
-                                                      ? 'bg-green-100 text-green-500'
-                                                      : order?.status === 'pendente'
-                                                          ? 'bg-red-100 text-red-500'
-                                                      : order?.status === 'processando'
-                                                              ? 'bg-blue-100 text-blue-500'
-                                                              : 'bg-indigo-100 text-indigo-500'
+                                              <span className={`p-1 rounded ${order?.status === 'entregue'
+                                                    ? 'bg-green-100 text-green-500' : order?.status === 'pendente'
+                                                    ? 'bg-red-100 text-red-500': order?.status === 'processando'
+                                                    ? 'bg-yellow-100 text-yellow-500': order?.status === 'enviado'
+                                                    ? 'bg-blue-100 text-blue-500': ''
                                                   }`}>
                                                   {order?.status}
                                               </span>
                                           </td>
                                           <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                              {order.amount}
+                                              R$ {order.amount}
                                           </td>
                                           <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                              
+
                                               <Link to={`/orders/${order?._id}`} className="underline hover:text-red-500 cursor-pointer">Visualizar</Link>
                                           </td>
                                       </tr>

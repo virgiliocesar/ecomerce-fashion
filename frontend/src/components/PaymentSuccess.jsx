@@ -25,34 +25,35 @@ const PaymentSuccess = () => {
   if (!order) { return <div>Loading...</div> }
 
   const isCompleted = (status) => {
-    const statuses = ["pending", "processing", "shipped", "completed"];
-    return statuses.indexOf(status) < statuses.indexOf(order.status)
+    const statuses = ["pendente", "processando", "enviado", "entregue"];
+    return statuses.indexOf(status) < statuses.indexOf(order.status);
   }
 
   const isCurrent = (status) => order.status === status;
+
   const steps = [
     {
-      status: 'pending',
+      status: 'pendente',
       label: 'Pendente',
-      description: 'Seu pedido foi criado, aguarde  até que seja processado.',
+      description: 'Pedido criado. Aguardando início.',
       icon: { iconName: 'time-line', bgColor: 'red-500', textColor: 'gray-800' },
     },
     {
-      status: 'processing',
+      status: 'processando',
       label: 'Processando',
-      description: 'Seu pedido está sendo processado no momento.',
+      description: 'Estamos preparando seu pedido.',
       icon: { iconName: 'loader-line', bgColor: 'yellow-800', textColor: 'yellow-800' },
     },
     {
-      status: 'shipped',
-      label: 'enviado',
+      status: 'enviado',
+      label: 'Enviado',
       description: 'Seu pedido saiu para entrega.',
       icon: { iconName: 'truck-line', bgColor: 'blue-800', textColor: 'blue-800' },
     },
     {
-      status: 'completed',
-      label: 'Completo',
-      description: 'Seu pedido foi entregue com sucesso.',
+      status: 'entregue',
+      label: 'Entregue',
+      description: 'Pedido entregue com sucesso!',
       icon: { iconName: 'check-line', bgColor: 'green-800', textColor: 'green-900' },
     },
   ];
