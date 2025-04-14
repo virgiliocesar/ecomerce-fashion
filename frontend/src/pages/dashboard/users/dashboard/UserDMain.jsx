@@ -16,12 +16,12 @@ const UserDMain = () => {
         return <div className='text-center text-gray-500'>No stats avaliable.</div>
     }
     const data = {
-        labels: ["Total de usuários", "Total Reviews", "Total de compras"],
+        labels: ["Pagamento total", "Total de Avaliações", "Total de compras"],
         datasets: [
             {
-                label: "User Stats",
+                label: "Dados do Usuário",
                 data: [
-                    stats.totalPaymentsAmount ?? 0,
+                    stats.totalPaymentsAmount.toFixed(2) ?? 0,
                     stats.totalReviews * 100 ?? 0,
                     stats.totalPurchasedProducts * 100 ?? 0
                 ],
