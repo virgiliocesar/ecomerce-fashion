@@ -68,11 +68,13 @@ const UserOrder = () => {
                                               }
                                           </td>
                                           <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                              <span className={`p-1 rounded ${order?.status === 'entregue'
-                                                    ? 'bg-green-100 text-green-500' : order?.status === 'pendente'
-                                                    ? 'bg-red-100 text-red-500': order?.status === 'processando'
-                                                    ? 'bg-yellow-100 text-yellow-500': order?.status === 'enviado'
-                                                    ? 'bg-blue-100 text-blue-500': ''
+                                              <span className={`py-[2px] px-2 rounded-full ${order.status === 'pendente'
+                                                  ? 'bg-red-100 text-red-500'
+                                                  : order.status === 'processando'
+                                                      ? 'bg-yellow-100 text-yellow-500'
+                                                      : order.status === 'enviado'
+                                                          ? 'bg-blue-100 text-blue-500'
+                                                          : 'bg-green-100 text-green-500'
                                                   }`}>
                                                   {order?.status}
                                               </span>
