@@ -37,10 +37,10 @@ const Navbar = () => {
   ]
   //^ user dropdown menu
   const userDropdownMenu = [
-    { label: "Dashboard", path: "/dashboard" },
-    { label: "Profile", path: "/dashboard/profile" },
-    { label: "Payments", path: "/dashboard/payments" },
-    { label: "Orders", path: "/dashboard/orders" },
+    { label: "Painel", path: "/dashboard" },
+    { label: "Perfil", path: "/dashboard/profile" },
+    { label: "Pagamento", path: "/dashboard/payments" },
+    { label: "Pedidos", path: "/dashboard/orders" },
   ]
 
   const dropdownMenu = user?.role === "admin" ? [...adminDropdownMenu] : [...userDropdownMenu]
@@ -61,16 +61,16 @@ const Navbar = () => {
       <nav className="max-w-screen-2x1 mx-auto  flex justify-between items-center">
         <ul className="nav__links ">
           <li className="link">
-            <Link to="/">Home</Link>
+            <Link to="/">Início</Link>
           </li>
           <li className="link">
-            <Link to="/shop">Shop</Link>
+            <Link to="/shop">Loja</Link>
           </li>
           <li className="link">
-            <Link to="/pages">Pages</Link>
+            <Link to="/pages">Páginas</Link>
           </li>
           <li className="link">
-            <Link to="/contato">Contact</Link>
+            <Link to="/contact">Contato</Link>
           </li>
         </ul>
         {/*logo*/}
@@ -121,7 +121,7 @@ const Navbar = () => {
                           <Link
                             onClick={handleLogout}
                             className="dropdown-item"
-                            >Logout</Link>
+                            >Sair</Link>
                         </li>
                       </ul>
                     </div>

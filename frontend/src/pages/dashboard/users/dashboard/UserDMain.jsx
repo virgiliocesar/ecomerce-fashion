@@ -55,9 +55,9 @@ const UserDMain = () => {
   return (
       <div className='p-6'>
           <div>
-              <h1 className='text-2-1 font-semibold mb-4'>Dashboard</h1>
+              <h1 className='text-2xl font-semibold mb-4'>Painel de Usuário</h1>
               <p className='text-gray-500'>
-                  Olá, {user?.username}! Bem -vindo ao seu painel de usuário
+                  Olá, {user?.username}! Bem - vindo ao seu painel de usuário
               </p>
           </div>
           <div>Status do usuário</div>

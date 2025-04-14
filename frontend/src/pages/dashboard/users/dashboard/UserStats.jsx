@@ -11,7 +11,7 @@ const UserStats = ({stats}) => {
               </div>
               <div className='bg-white shadow-md rounded-lg p-6 border border-gray-200 
               hover:border-primary-color cursor-pointer hover:scale-105 transition-all duration-200'>
-                  <h2 className='text-xl font-semibold mb-2'>Total de Reviews</h2>
+                  <h2 className='text-xl font-semibold mb-2'>Total de Avaliações</h2>
                   <p className='text-2xl font-bold'>{stats?.totalReviews}</p>
               </div>
               <div className='bg-white shadow-md rounded-lg p-6 border border-gray-200 

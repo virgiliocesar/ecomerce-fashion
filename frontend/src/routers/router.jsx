@@ -15,6 +15,8 @@ import UserDMain from "../pages/dashboard/users/dashboard/UserDMain";
 import UserOrder from "../pages/dashboard/users/UserOrder";
 import OrderDetails from "../pages/dashboard/users/OrderDetails";
 import UserPayments from "../pages/dashboard/users/UserPayments";
+import UserReviews from "../pages/dashboard/users/UserReviews";
+import UserProfile from "../pages/dashboard/users/UserProfile";
 
 
 
@@ -54,6 +56,10 @@ const router = createBrowserRouter([
             {
                 path: "/orders/:orderId",
                 element: <OrderDetails />
+            },
+            {
+                path: "/contact",
+                element: <EmDesenvolvimento />
             }
         ]
     },
@@ -82,10 +88,10 @@ const router = createBrowserRouter([
                 element: <UserPayments/>
             }, {
                 path: "profile",
-                element: <div>User Profile</div>
+                element: <UserProfile/>
             }, {
                 path: "reviews",
-                element: <div>User Reviews</div>
+                element: <UserReviews/>
             },
             //^ admin routes (only accessible by admin) //TODO: private routes with includes role
             {

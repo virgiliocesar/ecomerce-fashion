@@ -6,8 +6,6 @@ import { useGetOrdersByEmailQuery } from "../../../redux/features/orders/orderAp
 const UserPayments = () => {
     const { user } = useSelector((state) => state.auth)
     const { data: ordersdata, error, isLoading } = useGetOrdersByEmailQuery(user?.email)
-    
-
 
     if (isLoading) return <div className='text-center text-gray-500'>Loading...</div>
     if (error) return <div className='text-center text-gray-500'>No order found.</div>
