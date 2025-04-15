@@ -1,9 +1,9 @@
-import { useSelector } from 'react-redux'
 import { useState } from 'react'
+import { useSelector } from 'react-redux'
 import TextInput from './TextInput'
 import SelectInput from './SelectInput'
 import UploadImage from './UploadImage'
-// import { useAddProductMutation } from '../../../../redux/features/products/productsApi'
+import { useAddProductMutation } from '../../../../redux/features/products/productsApi'
 import { useNavigate } from 'react-router'
 
 const categories = [
@@ -38,7 +38,8 @@ const AddProduct = () => {
         color: "",
     })
     const [image, setImage] = useState('')
-    // const [AddProduct, {isLoading, error}] = useAddProductMutation()
+    const [AddProduct, { isLoading, error }] = useAddProductMutation()
+
     const handleChange = (e) => {
         const { name, value } = e.target
         setProduct({
@@ -51,7 +52,7 @@ const AddProduct = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!product.name || !product.category || !product.price || !product.description || !product.color) {
-            alert('Please fill all the required fields');
+            alert('Por favor, preencha todos os campos necessários');
             return;
         }
 
@@ -94,14 +95,14 @@ const AddProduct = () => {
                 />
                 <SelectInput
                     label="Color"
-                    name="colors"
+                    name="color"
                     value={product.color}
                     onChange={handleChange}
                     options={colors}
                 />
                 <TextInput
                     label="Preço"
-                    name="preço"
+                    name="price"
                     value={product.price}
                     onChange={handleChange}
                     type="number"
@@ -115,6 +116,23 @@ const AddProduct = () => {
                     placeholder="Upload imagem"
                     setImage={setImage}
                 />
+                <div>
+                    <label htmlFor="description" className='block text-sm font-medium text-gray-700'>Descrição</label>
+                    <textarea name="description" id="description"
+                        rows="20" 
+                        className='add-product-InputCSS'
+                        value={product.description}
+                        placeholder='Escreva uma descrição do produto'
+                        onChange={handleChange}
+                    ></textarea>
+                </div>
+                <button
+                    type="submit"
+                    className="cursor-pointer bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+                    disabled={isLoading}
+                >
+                    {isLoading ? "Adicionando..." : "Adicionar Produto"}
+                </button>
             </form>
         </div>
     )

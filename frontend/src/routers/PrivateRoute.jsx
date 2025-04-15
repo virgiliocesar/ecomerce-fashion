@@ -7,7 +7,7 @@ const PrivateRoute = ({ children, role }) => {
     const location = useLocation();
     if (!user) {
         alert('You need to login first')
-         return <Navigate to="/login" state={{ from: location }} replace />;
+         return <Navigate to="/entrar" state={{ from: location }} replace />;
     }
 
     if (role && user.role !== role) {

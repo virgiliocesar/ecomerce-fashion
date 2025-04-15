@@ -18,6 +18,9 @@ app.use(
   })
 );
 
+//^image upload
+const uploadImage = require("./src/utils/uploadImage");
+
 
 //^ all routes
 const authRules = require("./src/users/user.route");
@@ -40,10 +43,16 @@ main()
 //^ Connect to MongoDB database
 async function main() {
   await mongoose.connect(url);
+
+  app.get("/", (req, res) => {
+    res.send("Fashion E-commerce Server!");
+  });
 }
 
-app.get("/", (req, res) => {
-  res.send("Fashion E-commerce Server!");
+app.post("/uploadImage", (req, res) => {
+  uploadImage(req.body.image)
+    .then((url) => res.send(url))
+    .catch((err) => res.status(500).send(err));
 });
 
 app.listen(port, () => {
