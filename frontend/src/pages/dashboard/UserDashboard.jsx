@@ -7,19 +7,19 @@ import { useNavigate } from 'react-router'
 
 const navItems = [
   {
-    path: "/dashboard",
+    path: "/painel",
     label:"Painel"
   }, {
-    path: "orders",
+    path: "pedidos",
     label:"Pedidos"
   }, {
-    path: "payments",
+    path: "pagamentos",
     label:"Pagamentos"
   }, {
-    path: "profile",
+    path: "perfil",
     label:"Perfil"
   }, {
-    path: "reviews",
+    path: "avaliacoes",
     label:"Avaliações"
   },
 ]

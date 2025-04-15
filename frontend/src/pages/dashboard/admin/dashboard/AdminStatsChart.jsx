@@ -85,7 +85,7 @@ const AdminStatsChart = ({ stats }) => {
               </div>
           </div>
           <div>
-              <p className='text-center '>Feito com ❤️ por Virgílio </p>
+              <p className='text-center mt-6'>Feito com ❤️ por Virgílio </p>
           </div>
       </div>
   )

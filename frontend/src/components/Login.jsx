@@ -40,7 +40,7 @@ const Login = () => {
   return (
     <section className=" h-screen flex items-center justify-center">
       <div className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow">
-        <h2 className="mb-2 text-2xl font-semibold pt-5">Login</h2>
+        <h2 className="mb-2 text-2xl font-semibold pt-5">Entrar</h2>
         <form onSubmit={handleLogin} className="space-y-5 max-w-sm mx-auto pt-8">
           <input
             onChange={(e) => setEmail(e.target.value)}
@@ -66,10 +66,10 @@ const Login = () => {
             type='submit'
             className="w-full mt-5 bg-primary text-white login-btn font-medium
             py-3 rounded-md"
-          >Login</button>
+          >Entrar</button>
         </form>
         <p className="my-5 italic text-sm text-center">Não tenho uma conta?
-          <Link to="/register" className="text-red-500 hover-lr-name"> Cadastrar </Link>aqui.</p>
+          <Link to="/cadastrar" className="text-red-500 hover-lr-name"> Cadastrar </Link>aqui.</p>
 
       </div>
     </section>

@@ -9,9 +9,9 @@ const AdminDMain = () => {
     if(!stats) return <div className='text-center text-gray-500'>No stats avaliable.</div>
     if(error) return <div className='text-center text-gray-500'>Failed to load stats!</div>
   return (
-      <div className="p-6">
+      <div className="p-1">
           <div>
-              <h1 className="text-2xl font-semibold mb-4">AdminDMain</h1>
+              <h1 className="text-2xl font-semibold mb-4">Painel</h1>
               <p className='text-gray-500'>Olá, {user?.username}! Bem - vindo ao seu painel de Administrador.</p>
               <AdminStats stats={stats} />
               <AdminStatsChart stats={stats} />

@@ -30,17 +30,17 @@ const Navbar = () => {
 
   //^ admin dropdown menu
   const adminDropdownMenu = [
-    { label: "Painel", path: "/dashboard/admin" },
-    { label: "Gerenciar", path: "/dashboard/manage-products" },
-    { label: "Pedidos", path: "/dashboard/manage-orders" },
-    { label: "Produtos", path: "/dashboard/add-new-post" },
+    { label: "Painel", path: "/painel/admin" },
+    { label: "Gerenciar", path: "/painel/gerenciar-produtos" },
+    { label: "Pedidos", path: "/painel/gerenciar-pedidos" },
+    { label: "Produtos", path: "/painel/adicionar-produto" },
   ]
   //^ user dropdown menu
   const userDropdownMenu = [
-    { label: "Painel", path: "/dashboard" },
-    { label: "Perfil", path: "/dashboard/profile" },
-    { label: "Pagamento", path: "/dashboard/payments" },
-    { label: "Pedidos", path: "/dashboard/orders" },
+    { label: "Painel", path: "/painel" },
+    { label: "Perfil", path: "/painel/perfil" },
+    { label: "Pagamentos", path: "/painel/pagamentos" },
+    { label: "Pedidos", path: "/painel/pedidos" },
   ]
 
   const dropdownMenu = user?.role === "admin" ? [...adminDropdownMenu] : [...userDropdownMenu]
@@ -128,7 +128,7 @@ const Navbar = () => {
                   )
                 }
 
-              </>) : (<Link to="/login">
+              </>) : (<Link to="/entrar">
                 <i className="ri-user-line"></i>
               </Link>)
             }

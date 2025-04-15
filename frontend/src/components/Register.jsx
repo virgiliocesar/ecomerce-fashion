@@ -34,7 +34,7 @@ const Register = () => {
   return (
     <section className=" h-screen flex items-center justify-center">
       <div className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow">
-        <h2 className="mb-2 text-2xl font-semibold pt-5">Cadastro</h2>
+        <h2 className="mb-2 text-2xl font-semibold pt-5">Cadastrar</h2>
         <form onSubmit={handleRegister} className="space-y-5 max-w-sm mx-auto pt-8">
 
           <input
@@ -73,7 +73,7 @@ const Register = () => {
           >Cadastrar</button>
         </form>
         <p className="my-5 italic text-sm text-center">Já tenho uma conta?
-          <Link to="/login" className="text-red-500 hover-lr-name"> Entrar</Link>.</p>
+          <Link to="/entrar" className="text-red-500 hover-lr-name"> Entrar</Link>.</p>
 
       </div>
     </section>

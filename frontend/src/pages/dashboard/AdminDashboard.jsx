@@ -7,19 +7,19 @@ import { Link, NavLink } from 'react-router'
 
 const navItems = [
     {
-        path: "/dashboard/admin",
+        path: "/painel/admin",
         label: "Painel"
     }, {
-        path: "add-new-post",
+        path: "adiconar-produto",
         label: "Adicionar novo Produto"
     }, {
-        path: "manage-products",
+        path: "gerenciar-produtos",
         label: "Gerenciar Produtos"
     }, {
-        path: "Users",
+        path: "usuarios",
         label: "Usuários"
     }, {
-        path: "manage-orders",
+        path: "gerenciar-pedidos",
         label: "Gerenciar Pedidos"
     },
 ]
