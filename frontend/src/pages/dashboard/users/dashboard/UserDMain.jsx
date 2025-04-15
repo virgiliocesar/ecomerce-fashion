@@ -12,9 +12,8 @@ const UserDMain = () => {
     const {data: stats, error, isLoading} = useGetUserStatsQuery(user?.email)
      console.log(stats);
     if (isLoading) return <div className='text-center text-gray-500'>Loading...</div>
-    if (!stats) {
-        return <div className='text-center text-gray-500'>No stats avaliable.</div>
-    }
+    if (!stats) return <div className='text-center text-gray-500'>No stats avaliable.</div>
+    if (error) return <div className='text-center text-gray-500'>Failed to load stats!</div>
     const data = {
         labels: ["Pagamento total", "Total de Avaliações", "Total de compras"],
         datasets: [
@@ -32,7 +31,7 @@ const UserDMain = () => {
         ],
     };
 
-    
+
     const options = {
         responsive: true,
         plugins: {
@@ -57,7 +56,7 @@ const UserDMain = () => {
           <div>
               <h1 className='text-2xl font-semibold mb-4'>Painel de Usuário</h1>
               <p className='text-gray-500'>
-                  Olá, {user?.username}! Bem - vindo ao seu painel de usuário
+                  Olá, {user?.username}! Bem - vindo ao seu painel de usuário.
               </p>
           </div>
           <div>Status do usuário</div>

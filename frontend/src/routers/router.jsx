@@ -17,6 +17,7 @@ import OrderDetails from "../pages/dashboard/users/OrderDetails";
 import UserPayments from "../pages/dashboard/users/UserPayments";
 import UserReviews from "../pages/dashboard/users/UserReviews";
 import UserProfile from "../pages/dashboard/users/UserProfile";
+import AdminDMain from "../pages/dashboard/admin/dashboard/AdminDMain";
 
 
 
@@ -96,7 +97,7 @@ const router = createBrowserRouter([
             //^ admin routes (only accessible by admin) //TODO: private routes with includes role
             {
                 path: "admin",
-                element: <PrivateRoute role="admin"><div>Admin Main</div></PrivateRoute> //TODO: user private routes her <EmDesenvolvimento />
+                element: <PrivateRoute role="admin"><AdminDMain/></PrivateRoute> //TODO: user private routes her <EmDesenvolvimento />
             },  {
                 path: "add-new-post",
                 element: <PrivateRoute role="admin"><div>New Post</div></PrivateRoute> //TODO: user private routes her <EmDesenvolvimento />

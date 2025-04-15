@@ -30,10 +30,10 @@ const Navbar = () => {
 
   //^ admin dropdown menu
   const adminDropdownMenu = [
-    { label: "Dashboard", path: "/dashboard/admin" },
-    { label: "Manage Items", path: "/dashboard/manage-products" },
-    { label: "All Orders", path: "/dashboard/manage-orders" },
-    { label: "add New Post", path: "/dashboard/add-new-post" },
+    { label: "Painel", path: "/dashboard/admin" },
+    { label: "Gerenciar", path: "/dashboard/manage-products" },
+    { label: "Pedidos", path: "/dashboard/manage-orders" },
+    { label: "Produtos", path: "/dashboard/add-new-post" },
   ]
   //^ user dropdown menu
   const userDropdownMenu = [
