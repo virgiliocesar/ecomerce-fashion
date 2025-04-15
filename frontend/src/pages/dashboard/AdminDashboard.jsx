@@ -10,7 +10,7 @@ const navItems = [
         path: "/painel/admin",
         label: "Painel"
     }, {
-        path: "adiconar-produto",
+        path: "adicionar-produto",
         label: "Adicionar novo Produto"
     }, {
         path: "gerenciar-produtos",
@@ -67,7 +67,7 @@ const AdminDashboard = () => {
               <hr className='mb-3' />
               <button
                   onClick={handledLogout}
-                  className='cursior-pointer text-white bg-primary font-medium px-5 py-1 rounded-sm'>Sair</button>
+                  className='cursor-pointer text-white bg-primary font-medium px-5 py-1 rounded-sm'>Sair</button>
           </div>
       </div>
   )
