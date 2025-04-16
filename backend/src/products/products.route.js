@@ -6,7 +6,7 @@ const verifyToken = require("../middleware/verifyToken");
 const verifyAdmin = require("../middleware/verifyAdmin");
 
 //^ post a product
-router.post("/crate-product", async (req, res) => {
+router.post("/create-product", async (req, res) => {
   try {
     const newProduct = new Products({
       ...req.body,

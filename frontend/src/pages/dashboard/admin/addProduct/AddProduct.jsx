@@ -117,15 +117,21 @@ const AddProduct = () => {
                     setImage={setImage}
                 />
                 <div>
-                    <label htmlFor="description" className='block text-sm font-medium text-gray-700'>Descrição</label>
-                    <textarea name="description" id="description"
-                        rows="20" 
-                        className='add-product-InputCSS'
+                    <label htmlFor="description" className="block text-sm font-medium text-gray-700 mb-1">
+                        Descrição
+                    </label>
+                    <textarea
+                        name="description"
+                        id="description"
                         value={product.description}
-                        placeholder='Escreva uma descrição do produto'
                         onChange={handleChange}
+                        placeholder="Escreva uma descrição do produto"
+                        className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                        rows={4} // você pode ajustar a altura aqui
                     ></textarea>
                 </div>
+
+
                 <button
                     type="submit"
                     className="cursor-pointer bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
