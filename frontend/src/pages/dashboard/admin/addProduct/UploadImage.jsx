@@ -79,12 +79,12 @@ const UploadImage = ({ name, setImage }) => {
             />
 
             {loading && (
-                <div className='mt-2 text-sm text-blue-600'>Carregando Produto...</div>
+                <div className='mt-2 text-sm text-blue-600'>Carregando Imagem...</div>
             )}
 
             {url && (
                 <div className='mt-4 text-sm text-green-600 w-50'>
-                    <p>Imagem enviada com sucesso!</p>
+                    <p>Imagem Carregada com sucesso!</p>
                     <img src={url} alt="uploaded" className="mt-2 w-48 rounded-md shadow" />
                 </div>
             )}
