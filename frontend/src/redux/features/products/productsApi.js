@@ -21,11 +21,12 @@ const productsApi = createApi({
         const queryParams = new URLSearchParams({
           category: category || "",
           color: color || "",
-          minPrice: minPrice || "",
+          minPrice: minPrice || 0,
           maxPrice: maxPrice || "",
           page: page.toString(),
           limit: limit.toString(),
         }).toString();
+
         return `/?${queryParams}`;
       },
       providesTags: ["Products"],
@@ -35,7 +36,8 @@ const productsApi = createApi({
       query: (id) => `/${id}`,
       providesTags: (result, error, id) => [{ type: "Products", id }],
     }),
-    addProduct: builder.mutation({
+
+    AddProduct: builder.mutation({
       query: (newProduct) => ({
         url: "/create-product",
         method: "POST",
@@ -48,10 +50,9 @@ const productsApi = createApi({
     fetchRelatedProducts: builder.query({
       query: (id) => `/related/${id}`,
     }),
-
     updateProduct: builder.mutation({
       query: ({ id, ...rest }) => ({
-        url: `/update-product/${id}`,
+        url: `update-product/${id}`,
         method: "PATCH",
         body: rest,
         credentials: "include",
@@ -65,12 +66,10 @@ const productsApi = createApi({
         method: "DELETE",
         credentials: "include",
       }),
-        invalidatesTags: (result, error, id) => (result ? [{ type: "Products" }] : []),
-
+      invalidatesTags: (result, error, id) => [{ type: "Products", id }],
     }),
   }),
 });
-
 
 export const {
   useFetchAllProductsQuery,

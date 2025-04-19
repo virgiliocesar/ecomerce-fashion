@@ -28,6 +28,7 @@ const ShopPage = () => {
 
     const { category, color, priceRange } = filtersState
     const [minPrice, maxPrice] = priceRange.split('-').map(Number)
+
     const { data: { products = [], totalPages, totalProducts } = {}, error, isLoading } = useFetchAllProductsQuery({
         category: category !== 'ver tudo' ? category : '',
         color: color !== 'ver tudo' ? color : '',
@@ -37,14 +38,20 @@ const ShopPage = () => {
         limit: ProductsPerPage,
     })
 
+    //^ Atualiza filtros e reseta a página
+    const updateFiltersState = (newState) => {
+        setFiltersState(newState)
+        setCurrentPage(1)
+    }
 
-    //^ clear the filters
+    //^ Limpa os filtros e reseta a página
     const clearFilters = () => {
         setFiltersState({
             category: 'ver tudo',
             color: 'ver tudo',
             priceRange: ''
         })
+        setCurrentPage(1)
     }
 
     if (isLoading) return <h1>Loading...</h1>
@@ -62,53 +69,56 @@ const ShopPage = () => {
 
             <section className="section__container">
                 <div className="flex flex-col md:flex-row md:gap-12 gap-8">
-
-                    {/* <!-- left side --> */}
+                    {/* Filtros */}
                     <ShopFiltering
                         filters={filters}
                         filtersState={filtersState}
-                        setFiltersState={setFiltersState}
-                        clearFilters={clearFilters} />
+                        setFiltersState={updateFiltersState}
+                        clearFilters={clearFilters}
+                    />
 
-                    {/* <!-- right side --> */}
+                    {/* Produtos */}
                     <div>
-                        <h3 className="text-1 font-medium mb-4">Mostrando {startProduct} para {endProduct} de {totalProducts} produtos </h3>
+                        <h3 className="text-1 font-medium mb-4">
+                            Mostrando {startProduct} para {endProduct} de {totalProducts} produtos
+                        </h3>
                         <ProductCards products={products} />
 
-                        {/* pagination */}
-
+                        {/* Paginação */}
                         <div className="mt-6 flex justify-center">
                             <button
                                 disabled={currentPage === 1}
                                 onClick={() => setCurrentPage(currentPage - 1)}
                                 className="px-4 py-1.5 bg-gray-300 text-gray-700 rounded-md mr-2 cursor-pointer"
-                            >Anterior</button>
+                            >
+                                Anterior
+                            </button>
 
-                            {[
-                                ...Array(totalPages)].map((_, index) => (
-                                    <button key={index}
-                                        onClick={() => setCurrentPage(index + 1)}
-                                        className={`px-4 py-1.5 bg-gray-300 text-gray-700 rounded-md mr-2 cursor-pointer
+                            {Array.from({ length: totalPages }, (_, index) => (
+                                <button
+                                    key={index}
+                                    onClick={() => setCurrentPage(index + 1)}
+                                    className={`px-4 py-1.5 bg-gray-300 text-gray-700 rounded-md mr-2 cursor-pointer
                                         ${index + 1 === currentPage ? 'bg-primary text-white' : ''}
                                     `}
-                                    >{index + 1}</button>
-                                ))
-                            }
+                                >
+                                    {index + 1}
+                                </button>
+                            ))}
 
                             <button
                                 disabled={currentPage === totalPages}
                                 onClick={() => setCurrentPage(currentPage + 1)}
                                 className="px-4 py-1.5 bg-gray-300 text-gray-700 rounded-md mr-2 cursor-pointer"
-                            >Próximo</button>
-
-
+                            >
+                                Próximo
+                            </button>
                         </div>
                     </div>
                 </div>
             </section>
         </>
     )
-
 }
 
 export default ShopPage

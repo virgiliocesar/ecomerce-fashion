@@ -5,8 +5,8 @@ import { Link } from 'react-router'
 const ManageProduct = () => {
 
     const [currentPage, setCurrentPage] = useState(1)
-    const [ProductsPerPage, setProductsPerPage] = useState(9)
-    const { data, error, isLoading } = useFetchAllProductsQuery({
+    const [ProductsPerPage, setProductsPerPage] = useState(10)
+    const { data, error, isLoading, refetch } = useFetchAllProductsQuery({
         category: '',
         color: '',
         minPrice: '',
@@ -24,14 +24,15 @@ const ManageProduct = () => {
     const handleDeleteProduct = async (productId) => {
         try {
            const response = await deleteProduct(productId).unwrap();
-            alert("Produto deletado com sucesso!");
+            // alert("Produto deletado com sucesso!");
             await refetch();
         } catch (error) {
             console.error("Erro ao deletar produto:", error);
         }
     }
+    console.log("Produtos renderizados:", products.map(p => p._id));
 
-
+    console.log("Produtos vindos da API:", products);
 
     return (
         <>
@@ -81,7 +82,7 @@ const ManageProduct = () => {
                                 <tbody>
                                     {
                                         products.map((product, index) => (
-                                            <tr className="text-gray-700" key={product._id}>
+                                            <tr className="text-gray-700" key={product._id || index}>
                                                 <th
                                                     className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
                                                     {index + 1}
@@ -105,6 +106,7 @@ const ManageProduct = () => {
                                                     </button>
                                                 </td>
                                             </tr>
+                                            
                                         ))}
                                 </tbody>
                             </table>
