@@ -11,16 +11,17 @@ import EmDesenvolvimento from "../components/EmDesenvolvimento";
 import PaymentSuccess from "../components/PaymentSuccess";
 import DashboardLayout from "../pages/dashboard/DashboardLayout";
 import PrivateRoute from "./PrivateRoute";
-import UserDMain from "../pages/dashboard/users/dashboard/UserDMain";
-import UserOrder from "../pages/dashboard/users/UserOrder";
-import OrderDetails from "../pages/dashboard/users/OrderDetails";
-import UserPayments from "../pages/dashboard/users/UserPayments";
-import UserReviews from "../pages/dashboard/users/UserReviews";
-import UserProfile from "../pages/dashboard/users/UserProfile";
+import UserDMain from "../pages/dashboard/user/dashboard/UserDMain";
+import UserOrder from "../pages/dashboard/user/UserOrder";
+import OrderDetails from "../pages/dashboard/user/OrderDetails";
+import UserPayments from "../pages/dashboard/user/UserPayments";
+import UserReviews from "../pages/dashboard/user/UserReviews";
+import UserProfile from "../pages/dashboard/user/UserProfile";
 import AdminDMain from "../pages/dashboard/admin/dashboard/AdminDMain";
 import AddProduct from "../pages/dashboard/admin/addProduct/AddProduct";
 import ManageProduct from "../pages/dashboard/admin/manageProduct/ManageProduct";
 import UpdateProduct from "../pages/dashboard/admin/manageProduct/UpdateProduct";
+import ManageUser from "../pages/dashboard/admin/users/ManageUser";
 
 
 
@@ -100,10 +101,10 @@ const router = createBrowserRouter([
             //^ admin routes (only accessible by admin) //TODO: private routes with includes role
             {
                 path: "admin",
-                element: <PrivateRoute role="admin"><AdminDMain/></PrivateRoute> //TODO: user private routes her <EmDesenvolvimento />
+                element: <PrivateRoute role="admin"><AdminDMain/></PrivateRoute>
             },  {
                 path: "adicionar-produto",
-                element: <PrivateRoute role="admin"><AddProduct/></PrivateRoute> //TODO: user private routes her <EmDesenvolvimento />
+                element: <PrivateRoute role="admin"><AddProduct/></PrivateRoute>
             }, {
                 path: "gerenciar-produtos",
                 element: <PrivateRoute role="admin"><ManageProduct/></PrivateRoute>
@@ -112,7 +113,7 @@ const router = createBrowserRouter([
                 element: <PrivateRoute role="admin"><UpdateProduct/></PrivateRoute>
             }, {
                 path: "usuarios",
-                element: <PrivateRoute role="admin"><div>All Users</div></PrivateRoute>
+                element: <PrivateRoute role="admin"><ManageUser/></PrivateRoute>
             },{
                 path: "gerenciar-pedidos",
                 element: <PrivateRoute role="admin"><div>Manage Order</div></PrivateRoute>}

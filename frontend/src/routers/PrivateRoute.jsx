@@ -6,12 +6,12 @@ const PrivateRoute = ({ children, role }) => {
     const { user } = useSelector((state) => state.auth)
     const location = useLocation();
     if (!user) {
-        alert('You need to login first')
+        alert('Você precisa fazer login primeiro')
          return <Navigate to="/entrar" state={{ from: location }} replace />;
     }
 
     if (role && user.role !== role) {
-        alert('You do not have permission to access this page')
+        alert('Você não tem permissão para acessar esta página')
         return <Navigate to="/" state={{ from: location }} replace />;
     }
     return children

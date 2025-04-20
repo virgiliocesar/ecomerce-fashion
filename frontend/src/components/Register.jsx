@@ -24,7 +24,7 @@ const Register = () => {
     try {
       await registerUser(data).unwrap()
       alert('Registro efetuado com sucesso')
-      navigate('/login')
+      navigate('/entrar')
     } catch (error) {
       setMessage("verifique os dados e tente novamente...")
     }

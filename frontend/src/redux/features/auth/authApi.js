@@ -15,6 +15,7 @@ const authApi = createApi({
         method: "POST",
         body: newUser,
       }),
+      invalidatesTags: [{ type: "User", id: "LIST" }],
     }),
     loginUser: builder.mutation({
       query: (credentials) => ({
@@ -34,18 +35,27 @@ const authApi = createApi({
         url: "/users",
         method: "GET",
       }),
-      refetchOnMount: true,
-      invalidatesTags: ["User"],
+      providesTags: (result) =>
+        result
+          ? [
+              ...result.map(({ _id }) => ({ type: "User", id: _id })),
+              { type: "User", id: "LIST" },
+            ]
+          : [{ type: "User", id: "LIST" }],
     }),
+
     deleteUser: builder.mutation({
       query: (userId) => ({
         url: `/users/${userId}`,
         method: "DELETE",
       }),
-      invalidatesTags: ["User"],
+      invalidatesTags: (result, error, userId) => [
+        { type: "User", id: userId },
+        { type: "User", id: "LIST" },
+      ],
     }),
     updateUserRole: builder.mutation({
-      query: (userId, role) => ({
+      query: ({ userId, role }) => ({
         url: `/users/${userId}`,
         method: "PUT",
         body: { role },
@@ -53,6 +63,7 @@ const authApi = createApi({
       refetchOnMount: true,
       invalidatesTags: ["User"],
     }),
+
     editProfile: builder.mutation({
       query: (profileData) => ({
         url: `/edit-profile`,

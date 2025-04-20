@@ -14,7 +14,7 @@ const ManageProduct = () => {
         page: currentPage,
         limit: ProductsPerPage,
     })
-    
+
 
     const { products = [], totalPages, totalProducts } = data || {}
 
@@ -24,17 +24,13 @@ const ManageProduct = () => {
     const [deleteProduct] = useDeleteProductMutation()
     const handleDeleteProduct = async (productId) => {
         try {
-           const response = await deleteProduct(productId).unwrap();
+            const response = await deleteProduct(productId).unwrap();
             // alert("Produto deletado com sucesso!");
             await refetch();
         } catch (error) {
             console.error("Erro ao deletar produto:", error);
         }
     }
-
-    // console.log("Produtos renderizados:", products.map(p => p.name));
-
-    // console.log("Produtos vindos da API:", products);
 
     return (
         <>
@@ -52,9 +48,6 @@ const ManageProduct = () => {
                                 <div className="relative w-full px-4 max-w-full flex-grow flex-1">
                                     <h3 className="font-semibold text-base text-blueGray-700">Todos os Produtos</h3>
                                 </div>
-                                <div className="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
-                                    <button className="bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">See all</button>
-                                </div>
                             </div>
                             <p className="text-xs text-blueGray-400 mt-2 ">Mostrando {startProduct} para {endProduct} de {totalProducts} produtos </p>
                         </div>
@@ -63,19 +56,19 @@ const ManageProduct = () => {
                             <table className="items-center bg-transparent w-full border-collapse ">
                                 <thead>
                                     <tr>
-                                        <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                                        <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border-1  border-gray-300 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                                             <i className="ri-file-list-line"></i>
                                         </th>
-                                        <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                                        <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border-1  border-gray-300 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                                             Nome do Produto
                                         </th>
-                                        <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                                        <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border-1  border-gray-300 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                                             Data da Publicação
                                         </th>
-                                        <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                                        <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border-1  border-gray-300 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                                             Editar <i className="ri-pencil-line"></i>
                                         </th>
-                                        <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                                        <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border-1  border-gray-300 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                                             Deletar
                                             <i className="ri-delete-bin-2-line"></i>
                                         </th>
@@ -87,7 +80,7 @@ const ManageProduct = () => {
                                             <tr className="text-gray-700" key={product._id || index}>
                                                 <th
                                                     className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                                                    {index + 1} {product?._id}
+                                                    {index + 1}
                                                 </th>
                                                 <td
                                                     className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
@@ -97,7 +90,10 @@ const ManageProduct = () => {
                                                     {product?.updatedAt && new Date(product.updatedAt).toLocaleDateString() || 'N/A'}
                                                 </td>
                                                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 cursor-pointer">
-                                                    <Link to={`/painel/atualizar-produto/${product._id}`}>Editar
+                                                    <Link
+                                                        to={`/painel/atualizar-produto/${product._id}`}
+                                                        className="cursor-pointer hover:text-indigo-600" >
+                                                        Editar
                                                         <i className="ri-pencil-line"></i>
                                                     </Link>
                                                 </td>
@@ -108,7 +104,6 @@ const ManageProduct = () => {
                                                     </button>
                                                 </td>
                                             </tr>
-                                            
                                         ))}
                                 </tbody>
                             </table>
@@ -150,11 +145,10 @@ const ManageProduct = () => {
                         disabled={currentPage === totalPages}
                         onClick={() => setCurrentPage(currentPage + 1)}
                         className={`px-4 py-1.5 rounded-md
-      ${currentPage === totalPages
+                        ${currentPage === totalPages
                                 ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
                                 : 'bg-gray-300 text-gray-700 cursor-pointer'}
-    `}
-                    >
+                            `}>
                         Próximo
                     </button>
                 </div>
