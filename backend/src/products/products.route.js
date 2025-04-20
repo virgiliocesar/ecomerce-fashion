@@ -51,6 +51,7 @@ router.get("/", async (req, res) => {
     if (color && color !== "all") {
       filter.color = color;
     }
+
     if (minPrice && maxPrice) {
       const min = parseFloat(minPrice);
       const max = parseFloat(maxPrice);
@@ -58,20 +59,37 @@ router.get("/", async (req, res) => {
         filter.price = { $gte: min, $lte: max };
       }
     }
-    const skip = (parseInt(page) - 1) * parseInt(limit);
-    const totalProducts = await Products.countDocuments(filter);
-    const totalPages = Math.ceil(totalProducts / parseInt(limit));
-    const products = await Products.find(filter)
-      .skip(skip)
-      .limit(parseInt(limit))
+
+    // 🧠 Primeiro busca todos os produtos (sem paginação ainda)
+    const allProducts = await Products.find(filter)
       .populate("author", "email")
       .sort({ createdAt: -1 });
-    res.status(200).send({ products, totalPages, totalProducts });
+
+    // 🔥 Remove duplicados pelo _id
+    const uniqueProducts = allProducts.filter(
+      (product, index, self) =>
+        index === self.findIndex(p => p._id.toString() === product._id.toString())
+    );
+
+    // 📦 Agora aplica paginação sobre os produtos únicos
+    const totalProducts = uniqueProducts.length;
+    const totalPages = Math.ceil(totalProducts / parseInt(limit));
+    const skip = (parseInt(page) - 1) * parseInt(limit);
+    const paginatedProducts = uniqueProducts.slice(skip, skip + parseInt(limit));
+
+    console.log("Sem duplicados:", paginatedProducts);
+
+    res.status(200).send({
+      products: paginatedProducts,
+      totalPages,
+      totalProducts
+    });
   } catch (error) {
     console.error("Error getting products:", error);
     res.status(500).send({ message: "Failed to get products" });
   }
 });
+
 
 //^ get a single product
 router.get("/:id", async (req, res) => {

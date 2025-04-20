@@ -14,6 +14,7 @@ const ManageProduct = () => {
         page: currentPage,
         limit: ProductsPerPage,
     })
+    
 
     const { products = [], totalPages, totalProducts } = data || {}
 
@@ -30,9 +31,10 @@ const ManageProduct = () => {
             console.error("Erro ao deletar produto:", error);
         }
     }
-    console.log("Produtos renderizados:", products.map(p => p._id));
 
-    console.log("Produtos vindos da API:", products);
+    // console.log("Produtos renderizados:", products.map(p => p.name));
+
+    // console.log("Produtos vindos da API:", products);
 
     return (
         <>
@@ -85,7 +87,7 @@ const ManageProduct = () => {
                                             <tr className="text-gray-700" key={product._id || index}>
                                                 <th
                                                     className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                                                    {index + 1}
+                                                    {index + 1} {product?._id}
                                                 </th>
                                                 <td
                                                     className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
