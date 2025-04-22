@@ -13,7 +13,7 @@ const DealsSection = () => {
                 <div className="deals__countdown flex-wrap">
                     <div className="deals__countdown__card">
                         <h4>14</h4>
-                        <p>dias</p>
+                        <p>Dias</p>
                     </div>
                     <div className="deals__countdown__card">
                         <h4>20</h4>

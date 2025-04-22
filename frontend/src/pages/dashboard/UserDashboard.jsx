@@ -65,12 +65,22 @@ const UserDashboard = () => {
         </ul>
       </div>
 
-      <div className='mb-3'>
+      <div className='mb-3 space-y-3'>
         <hr className='mb-3' />
         <button
           onClick={handledLogout}
-          className='cursor-pointer text-white bg-primary font-medium px-5 py-1 rounded-sm'>Sair</button>
+          className='cursor-pointer text-white bg-red-500 hover:bg-red-600 transition-colors font-medium px-5 py-2 rounded-md w-full flex items-center justify-center gap-2'>
+          <i className="ri-logout-box-r-line text-lg"></i>
+          <span>Sair</span>
+        </button>
+        <button
+          onClick={() => navigate("/shop")}
+          className='cursor-pointer flex items-center gap-2 text-white bg-green-600 hover:bg-green-700 transition-colors font-medium px-5 py-2 rounded-md w-full justify-center'>
+          <i className="ri-store-line text-lg"></i>
+          <span>Loja</span>
+        </button>
       </div>
+
     </div>
   )
 }

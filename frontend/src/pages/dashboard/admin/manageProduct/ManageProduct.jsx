@@ -100,7 +100,7 @@ const ManageProduct = () => {
                                                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                                     <button
                                                         onClick={() => handleDeleteProduct(product._id)}
-                                                        className='bg-red-600 text-white p-2 rounded cursor-pointer'> Excluir <i className="ri-delete-bin-2-line"></i>
+                                                        className='bg-red-500 hover:bg-red-600 text-white p-2 rounded cursor-pointer'> Excluir <i className="ri-delete-bin-2-line"></i>
                                                     </button>
                                                 </td>
                                             </tr>

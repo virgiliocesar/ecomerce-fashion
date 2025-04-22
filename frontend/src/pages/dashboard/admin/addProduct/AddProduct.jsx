@@ -106,7 +106,7 @@ const AddProduct = () => {
                     value={product.price}
                     onChange={handleChange}
                     type="number"
-                    placeholder="R$ 00,00"
+                    placeholder="00.00"
                 />
                 <UploadImage
                     name="image"

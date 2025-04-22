@@ -26,7 +26,7 @@ const CartModal = ({ products, isOpen, onClose }) => {
 
                 <div className="p-4 mt-4">
                     <div className="flex justify-between items-center mb-4">
-                        <h4 className="text-xl font-semibold">Meu Carrinho</h4>
+                        <h4 className="text-xl font-semibold">Carrinho</h4>
                         <button
                             onClick={onClose}
                             className="text-gray-600 hover:text-gray-900">

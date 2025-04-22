@@ -24,20 +24,20 @@ const Footer = () => {
                 </p>
             </div>
             <div className="footer__col">
-                <h4>Empresa</h4>
-                <a href="/">Home</a>
+                <h4>EMPRESA</h4>
+                <a href="/">Início</a>
                 <a href="/">Sobre</a>
-                <a href="/">Trabalhar Conosco</a>
-                <a href="/">Nossos blogs</a>
-                <a href="/">Termos e Condição</a>
+                <a href="/">Trabalhe Conosco</a>
+                <a href="/">Nosso blog</a>
+                <a href="/">Termos e Condições</a>
             </div>
             <div className="footer__col">
-                <h4>LINK ÚTIL</h4>
+                    <h4>LINKS ÚTEIS</h4>
                 <a href="/">Ajuda</a>
                 <a href="/">Rastreie seu pedido</a>
-                <a href="/">homens</a>
+                <a href="/">Homens</a>
                 <a href="/">Mulheres</a>
-                <a href="/">vestidos</a>
+                <a href="/">Vestidos</a>
             </div>
             <div className="footer__col">
                 <h4>INTAGRAM</h4>

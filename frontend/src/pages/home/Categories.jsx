@@ -8,7 +8,7 @@ const Categories = () => {
     const categories = [
       { name: "Acessórios", path: "acessórios", image: category1 },
       {
-        name: "vestidos",
+        name: "Vestidos",
         path: "vestidos",
         image: category2,
       },

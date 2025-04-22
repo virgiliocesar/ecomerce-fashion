@@ -7,7 +7,8 @@ const UserReviews = () => {
     const { data: reviews, error, isLoading } = useGetReviewsByUserIdQuery(user?._id)
     const navigate = useNavigate();
     if (isLoading) return <div className='text-center text-gray-500'>Loading...</div>
-    if (error) return <div className='text-center text-gray-500'>Failed to load reviews!</div>
+    { error && <div className='text-center text-red-500 mb-4'>Falha ao carregar avaliações!</div> }
+
 
     const handleCardClick = () => {
         navigate('/shop')

@@ -1,5 +1,4 @@
 import { useDeleteUserMutation, useGetUserQuery } from "../../../../redux/features/auth/authApi";
-import { Link } from 'react-router'; // Corrigido
 import UpdateUserModal from "./UpdateUserModal";
 import { useState } from "react";
 
@@ -76,18 +75,23 @@ const ManageUser = () => {
                         <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                           {user?.email}
                         </td>
-                        <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                          <p className={user?.role === 'admin' ? 'text-blue-500 bg-blue-100 p-2 rounded-full' : 'text-green-500 bg-green-100 p-2 rounded-full'}>
+                        <td className="px-6 py-4 text-xs whitespace-nowrap align-middle">
+                          <span
+                            className={`inline-block px-3 py-1 rounded-full font-semibold capitalize
+                              ${user?.role === 'admin'
+                              ? 'bg-blue-700 text-white'
+                              : 'bg-amber-400 text-white'}`}>
                             {user?.role || 'N/A'}
-                          </p>
+                          </span>
                         </td>
+
                         <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                          <button onClick={() => handleEditUser(user)} className="hover:text-indigo-600 cursor-pointer">
+                          <button onClick={() => handleEditUser(user)} className="hover:text-indigo-500 cursor-pointer">
                             Editar <i className="ri-pencil-line"></i>
                           </button>
                         </td>
                         <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                          <button onClick={() => handleDeleteUser(user?._id)} className='bg-red-600 text-white p-2 rounded cursor-pointer'>
+                          <button onClick={() => handleDeleteUser(user?._id)} className='bg-red-500 hover:bg-red-600 text-white p-2 rounded cursor-pointer'>
                             Excluir <i className="ri-delete-bin-2-line"></i>
                           </button>
                         </td>
