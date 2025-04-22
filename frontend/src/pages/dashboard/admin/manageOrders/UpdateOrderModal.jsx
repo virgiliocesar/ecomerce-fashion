@@ -41,14 +41,14 @@ const UpdateOrderModal = ({ order, isOpen, onClose }) => {
                 <div className='flex justify-end gap-3'>
                     <button
                         onClick={onClose}
-                        className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded cursor-pointer"
+                        className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded cursor-pointer"
                     >
                         Cancelar
                     </button>
                     <button
                         onClick={handleUpdateOrderStatus}
                         disabled={isLoading}
-                        className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded cursor-pointer"
+                        className="bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 rounded cursor-pointer"
                     >
                         {isLoading ? 'Salvando...' : 'Salvar'}
                     </button>
