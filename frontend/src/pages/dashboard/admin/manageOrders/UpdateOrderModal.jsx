@@ -11,7 +11,7 @@ const UpdateOrderModal = ({ order, isOpen, onClose }) => {
             await updateOrderStatus({ id: order?._id, status })
             onClose();
         } catch (error) {
-            console.error("Failed to update order status:", err);
+            console.error("Failed to update order status:", error);
         }
     }
 
