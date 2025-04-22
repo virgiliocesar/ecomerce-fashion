@@ -22,6 +22,7 @@ import AddProduct from "../pages/dashboard/admin/addProduct/AddProduct";
 import ManageProduct from "../pages/dashboard/admin/manageProduct/ManageProduct";
 import UpdateProduct from "../pages/dashboard/admin/manageProduct/UpdateProduct";
 import ManageUser from "../pages/dashboard/admin/users/ManageUser";
+import ManagerOrders from "../pages/dashboard/admin/manageOrders/ManagerOrders";
 
 
 
@@ -30,13 +31,13 @@ const router = createBrowserRouter([
         path: "/",
         element: <App />,
         children: [
-        {
+            {
                 path: "/",
-                element: <Home/>
+                element: <Home />
             },
             {
                 path: "/categories/:categoryName",
-                element: <CategoryPage/>
+                element: <CategoryPage />
             },
             {
                 path: "/search",
@@ -70,11 +71,11 @@ const router = createBrowserRouter([
     },
     {
         path: "/entrar",
-        element: <Login/>
+        element: <Login />
     },
     {
         path: "/cadastrar",
-        element: <Register/>
+        element: <Register />
     },
     //^dashboard routes start here
     {
@@ -84,41 +85,51 @@ const router = createBrowserRouter([
             //^ user routes
             {
                 path: "",
-                element: <UserDMain/>
-            }, {
+                element: <UserDMain />
+            },
+            {
                 path: "pedidos",
-                element: <UserOrder/>
-            },{
+                element: <UserOrder />
+            },
+            {
                 path: "pagamentos",
-                element: <UserPayments/>
-            }, {
+                element: <UserPayments />
+            },
+            {
                 path: "perfil",
-                element: <UserProfile/>
-            }, {
+                element: <UserProfile />
+            },
+            {
                 path: "avaliacoes",
-                element: <UserReviews/>
+                element: <UserReviews />
             },
             //^ admin routes (only accessible by admin) //TODO: private routes with includes role
             {
                 path: "admin",
-                element: <PrivateRoute role="admin"><AdminDMain/></PrivateRoute>
-            },  {
+                element: <PrivateRoute role="admin"><AdminDMain /></PrivateRoute>
+            },
+            {
                 path: "adicionar-produto",
-                element: <PrivateRoute role="admin"><AddProduct/></PrivateRoute>
-            }, {
+                element: <PrivateRoute role="admin"><AddProduct /></PrivateRoute>
+            },
+            {
                 path: "gerenciar-produtos",
-                element: <PrivateRoute role="admin"><ManageProduct/></PrivateRoute>
-            }, {
+                element: <PrivateRoute role="admin"> <ManageProduct /> </PrivateRoute>
+            },
+            {
                 path: "atualizar-produto/:id",
-                element: <PrivateRoute role="admin"><UpdateProduct/></PrivateRoute>
-            }, {
+                element: <PrivateRoute role="admin"><UpdateProduct /></PrivateRoute>
+            },
+            {
                 path: "usuarios",
-                element: <PrivateRoute role="admin"><ManageUser/></PrivateRoute>
-            },{
+                element: <PrivateRoute role="admin"><ManageUser /></PrivateRoute>
+            },
+            {
                 path: "gerenciar-pedidos",
-                element: <PrivateRoute role="admin"><div>Manage Order</div></PrivateRoute>}
+                element: <PrivateRoute role="admin"><ManagerOrders /></PrivateRoute>
+            }
         ]
     }
 ]);
 
-    export default router
+export default router

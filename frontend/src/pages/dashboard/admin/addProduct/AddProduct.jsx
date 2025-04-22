@@ -94,7 +94,7 @@ const AddProduct = () => {
                     options={categories}
                 />
                 <SelectInput
-                    label="Color"
+                    label="Cor"
                     name="color"
                     value={product.color}
                     onChange={handleChange}
@@ -127,14 +127,14 @@ const AddProduct = () => {
                         onChange={handleChange}
                         placeholder="Escreva uma descrição do produto"
                         className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                        rows={4} // você pode ajustar a altura aqui
+                        rows={4} //ajustar a altura aqui
                     ></textarea>
                 </div>
 
 
                 <button
                     type="submit"
-                    className="cursor-pointer bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+                    className="cursor-pointer bg-indigo-500 text-white px-4 py-2 rounded-full hover:bg-indigo-600"
                     disabled={isLoading}
                 >
                     {isLoading ? "Adicionando..." : "Adicionar Produto"}

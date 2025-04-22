@@ -65,7 +65,7 @@ const UploadImage = ({ name, setImage }) => {
 
             <label
                 htmlFor={name}
-                className="inline-flex items-center px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-md shadow-sm hover:bg-indigo-700 cursor-pointer"
+                className="inline-flex items-center px-4 py-2 bg-indigo-500 text-white text-sm font-medium rounded-full shadow-sm hover:bg-indigo-600 cursor-pointer"
             >
                 Selecionar Imagem
             </label>

@@ -79,19 +79,19 @@ const ManageUser = () => {
                           <span
                             className={`inline-block px-3 py-1 rounded-full font-semibold capitalize
                               ${user?.role === 'admin'
-                              ? 'bg-blue-700 text-white'
-                              : 'bg-amber-400 text-white'}`}>
+                                ? 'bg-blue-700 text-white'
+                                : 'bg-amber-400 text-white'}`}>
                             {user?.role || 'N/A'}
                           </span>
                         </td>
 
                         <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                          <button onClick={() => handleEditUser(user)} className="hover:text-indigo-500 cursor-pointer">
+                          <button onClick={() => handleEditUser(user)} className="bg-indigo-500 hover:bg-indigo-600 text-white p-2 rounded-full cursor-pointer">
                             Editar <i className="ri-pencil-line"></i>
                           </button>
                         </td>
                         <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                          <button onClick={() => handleDeleteUser(user?._id)} className='bg-red-500 hover:bg-red-600 text-white p-2 rounded cursor-pointer'>
+                          <button onClick={() => handleDeleteUser(user?._id)} className='bg-red-500 hover:bg-red-600 text-white p-2 rounded-full cursor-pointer'>
                             Excluir <i className="ri-delete-bin-2-line"></i>
                           </button>
                         </td>
