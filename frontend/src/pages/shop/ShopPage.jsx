@@ -63,7 +63,7 @@ const ShopPage = () => {
     return (
         <>
             <section className="section__container bg-primary-light">
-                <h2 className="section__header capitalize">página da loja</h2>
+                <h2 className="section__header capitalize">Loja <i class="ri-shopping-cart-2-line"></i></h2>
                 <p className="section__subheader">Descubra as escolhas mais quentes: eleve seu estilo com a nossa coleção com curadoria de produtos de moda femininos de tendência.</p>
             </section>
 

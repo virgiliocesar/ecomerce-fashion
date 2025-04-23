@@ -74,7 +74,7 @@ const UserDashboard = () => {
           <span>Sair</span>
         </button>
         <button
-          onClick={() => navigate("/shop")}
+          onClick={() => navigate("/loja")}
           className='cursor-pointer flex items-center gap-2 text-white bg-green-600 hover:bg-green-700 transition-colors font-medium px-5 py-2 rounded-md w-full justify-center'>
           <i className="ri-store-line text-lg"></i>
           <span>Loja</span>

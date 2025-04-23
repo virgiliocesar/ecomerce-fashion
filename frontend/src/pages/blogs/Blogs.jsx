@@ -2,7 +2,7 @@ import blogsData from "../../data/blogs.json"
 
 const Blogs = () => {
     return (
-        <section className="section__container blog__container">
+        <section className="section__container blog__container" id="blog">
             <h2 className="section__header">Novidades do Blog</h2>
             <p className="section__subheader " style= {{marginBottom: '3rem' }}>Eleve seu guarda-roupa com nossas dicas de estilo mais frescas, tendências e inspiração em nosso blog.</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">

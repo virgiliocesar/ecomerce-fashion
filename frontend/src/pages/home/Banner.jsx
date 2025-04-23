@@ -13,7 +13,7 @@ const Banner = () => {
           e calçados que Atende a todos os gostos e ocasiões.
         </p>
         <button className="btn">
-          <Link to="/shop">Explore agora </Link>
+          <Link to="/loja">Explore agora </Link>
         </button>
       </div>
       <div className="header__image">

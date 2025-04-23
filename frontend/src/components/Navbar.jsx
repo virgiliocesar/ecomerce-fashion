@@ -64,13 +64,13 @@ const Navbar = () => {
             <Link to="/">Início <i class="ri-home-2-line"></i></Link>
           </li>
           <li className="link">
-            <Link to="/shop">Loja <i class="ri-shopping-cart-2-line"></i></Link>
+            <Link to="/loja">Loja <i class="ri-shopping-cart-2-line"></i></Link>
           </li>
           <li className="link">
-            <Link to="/pages">Páginas <i class="ri-pages-line"></i></Link>
+            <Link to="/paginas">Páginas <i class="ri-pages-line"></i></Link>
           </li>
           <li className="link">
-            <Link to="/contact">Contato <i class="ri-account-box-2-line"></i></Link>
+            <Link to="/contato">Contato <i class="ri-account-box-2-line"></i></Link>
           </li>
         </ul>
         {/*logo*/}
@@ -83,7 +83,7 @@ const Navbar = () => {
         {/*nav icon*/}
         <div className="nav__icons relative">
           <span>
-            <Link to="/search">
+            <Link to="/pesquisa">
               <i className="ri-search-line"></i>
             </Link>
           </span>

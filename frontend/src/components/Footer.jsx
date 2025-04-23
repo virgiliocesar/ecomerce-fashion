@@ -13,10 +13,10 @@ const Footer = () => {
                 <h4>INFORMAÇÕES DE CONTATO</h4>
                 <p>
                     <span><i className="ri-map-pin-2-fill"></i></span>
-                    Main Street, Anytown, CA 12345
+                    Vila Sao Pedro, São Bernardo do Campo - SP.
                 </p>
                 <p><span><i className="ri-mail-fill"></i></span>
-                    suport@lebaba.com
+                    suport@fashion.com
                 </p>
                 <p>
                     <span><i className="ri-phone-fill"></i></span>
@@ -26,18 +26,18 @@ const Footer = () => {
             <div className="footer__col">
                 <h4>EMPRESA</h4>
                 <a href="/">Início</a>
-                <a href="/">Sobre</a>
-                <a href="/">Trabalhe Conosco</a>
-                <a href="/">Nosso blog</a>
-                <a href="/">Termos e Condições</a>
+                    <a href="/paginas/sobre">Sobre</a>
+                    <a href="/paginas/trabalhe-conosco">Trabalhe Conosco</a>
+                    <a href="#">Nosso blog</a>
+                    <a href="/paginas/termos">Termos e Condições</a>
             </div>
             <div className="footer__col">
                     <h4>LINKS ÚTEIS</h4>
-                <a href="/">Ajuda</a>
-                <a href="/">Rastreie seu pedido</a>
-                <a href="/">Homens</a>
-                <a href="/">Mulheres</a>
-                <a href="/">Vestidos</a>
+                    <a href="/paginas/ajuda">Ajuda</a>
+                    <a href="/paginas/rastreio">Rastreie seu pedido</a>
+                    <a href="#">Homens</a>
+                    <a href="#">Mulheres</a>
+                    <a href="#">Vestidos</a>
             </div>
             <div className="footer__col">
                 <h4>INTAGRAM</h4>

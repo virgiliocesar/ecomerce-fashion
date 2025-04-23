@@ -7,7 +7,6 @@ import ShopPage from "../pages/shop/ShopPage";
 import SingleProduct from "../pages/shop/productDetails/SingleProduct";
 import Login from "../components/Login";
 import Register from "../components/Register";
-import EmDesenvolvimento from "../components/EmDesenvolvimento";
 import PaymentSuccess from "../components/PaymentSuccess";
 import DashboardLayout from "../pages/dashboard/DashboardLayout";
 import PrivateRoute from "./PrivateRoute";
@@ -23,6 +22,20 @@ import ManageProduct from "../pages/dashboard/admin/manageProduct/ManageProduct"
 import UpdateProduct from "../pages/dashboard/admin/manageProduct/UpdateProduct";
 import ManageUser from "../pages/dashboard/admin/users/ManageUser";
 import ManagerOrders from "../pages/dashboard/admin/manageOrders/ManagerOrders";
+import Contact from "../pages/contact/Contact";
+
+import PagesLayout from "../pages/pages/PageLayout/PagesLayout";
+import Page from "../pages/pages/Page";
+import Sobre from "../pages/pages/Sobre";
+import PrivacyPolicy from "../pages/pages/PrivacyPolicy";
+import TermsAndConditions from "../pages/pages/TermsAndConditions";
+import Tracking from "../pages/pages/Tracking";
+import Help from "../pages/pages/Help";
+import DeliveryPolicy from "../pages/pages/DeliveryPolicy";
+import ExchangePolicy from "../pages/pages/ExchangePolicy";
+import WorkWithUs from './../pages/Pages/WorkWithUs';
+
+
 
 
 
@@ -36,23 +49,34 @@ const router = createBrowserRouter([
                 element: <Home />
             },
             {
-                path: "/categories/:categoryName",
+                path: "/categoria/:categoryName",
                 element: <CategoryPage />
             },
             {
-                path: "/search",
+                path: "/pesquisa",
                 element: <Search />
             },
             {
-                path: "/shop",
+                path: "/loja",
                 element: <ShopPage />
             },
             {
-                path: "/pages",
-                element: <EmDesenvolvimento />
+                path: "/paginas",
+                element: <PagesLayout />,
+                children: [
+                    { path: "", element: <Page /> },
+                    { path: "ajuda", element: <Help /> },
+                    { path: "sobre", element: <Sobre /> },
+                    { path: "privacidade", element: <PrivacyPolicy /> },
+                    { path: "termos", element: <TermsAndConditions /> },
+                    { path: "rastreio", element: <Tracking /> },
+                    { path: "politica-de-entrega", element: <DeliveryPolicy /> },
+                    { path: "politica-de-troca", element: <ExchangePolicy /> },
+                    { path: "trabalhe-conosco", element: <WorkWithUs /> }
+                ]
             },
             {
-                path: "/shop/:id",
+                path: "/loja/:id",
                 element: <SingleProduct />
             },
             {
@@ -64,9 +88,10 @@ const router = createBrowserRouter([
                 element: <OrderDetails />
             },
             {
-                path: "/contact",
-                element: <EmDesenvolvimento />
-            }
+                path: "/contato",
+                element: <Contact />
+            },
+            
         ]
     },
     {

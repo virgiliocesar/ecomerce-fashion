@@ -19,17 +19,17 @@ const SingleProduct = () => {
         dispatch(addToCart(product))
     }
 
-    if (isLoading) return <p>Loading...</p>
-    if (error) return <p>Error loading product details.</p>
+    if (isLoading) return <p>Carregando...</p>
+    if (error) return <p>Erro ao carregar detalhes do produto.</p>
 
     return (
         <>
             <section className='section__container bg-primary-light'>
                 <h2 className='section__header capitalize'>{singleProduct?.name}</h2>
                 <div className='section__subheader space-x-2'>
-                    <span className='hover:text-primary'><Link to="/">home</Link></span>
+                    <span className='hover:text-primary'><Link to="/">Início</Link></span>
                     <i className="ri-arrow-right-s-line"></i>
-                    <span className='hover:text-primary'><Link to="/shop">shop</Link></span>
+                    <span className='hover:text-primary'><Link to="/loja">Loja</Link></span>
                     <i className="ri-arrow-right-s-line"></i>
                     <span className='hover:text-primary'>{singleProduct.name}</span>
                 </div>

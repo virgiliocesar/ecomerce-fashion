@@ -11,7 +11,7 @@ const UserReviews = () => {
 
 
     const handleCardClick = () => {
-        navigate('/shop')
+        navigate('/loja')
     }
 
   return (
