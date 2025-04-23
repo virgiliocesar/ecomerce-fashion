@@ -66,7 +66,7 @@ const Login = () => {
             type='submit'
             className="w-full mt-5 bg-primary text-white login-btn font-medium
             py-3 rounded-md"
-          >Entrar <i class="ri-login-box-line"></i></button>
+          >Entrar <i className="ri-login-box-line"></i></button>
         </form>
         <p className="my-5 italic text-sm text-center">Não tenho uma conta?
           <Link to="/cadastrar" className="text-red-500 hover-lr-name"> Cadastrar </Link>aqui.</p>

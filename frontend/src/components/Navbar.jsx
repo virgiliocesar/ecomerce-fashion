@@ -61,16 +61,16 @@ const Navbar = () => {
       <nav className="max-w-screen-2x1 mx-auto  flex justify-between items-center">
         <ul className="nav__links ">
           <li className="link">
-            <Link to="/">Início <i class="ri-home-2-line"></i></Link>
+            <Link to="/">Início <i className="ri-home-2-line"></i></Link>
           </li>
           <li className="link">
-            <Link to="/loja">Loja <i class="ri-shopping-cart-2-line"></i></Link>
+            <Link to="/loja">Loja <i className="ri-shopping-cart-2-line"></i></Link>
           </li>
           <li className="link">
-            <Link to="/paginas">Páginas <i class="ri-pages-line"></i></Link>
+            <Link to="/paginas">Páginas <i className="ri-pages-line"></i></Link>
           </li>
           <li className="link">
-            <Link to="/contato">Contato <i class="ri-account-box-2-line"></i></Link>
+            <Link to="/contato">Contato <i className="ri-account-box-2-line"></i></Link>
           </li>
         </ul>
         {/*logo*/}
@@ -121,7 +121,7 @@ const Navbar = () => {
                           <Link
                             onClick={handleLogout}
                             className="dropdown-item"
-                          >Sair <i class="ri-logout-box-r-line"></i></Link>
+                          >Sair <i className="ri-logout-box-r-line"></i></Link>
                         </li>
                       </ul>
                     </div>

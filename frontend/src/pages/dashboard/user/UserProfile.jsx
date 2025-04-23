@@ -72,7 +72,7 @@ const UserProfile = () => {
               </div>
               <button
                   onClick={() => setIsModalOpen(true)}
-                  className="cursor-pointer ml-auto text-blue-500 hover:text-blue-700"><i class="ri-side-bar-line"></i></button>
+                  className="cursor-pointer ml-auto text-blue-500 hover:text-blue-700"><i className="ri-side-bar-line"></i></button>
           </div>
           {/* show modal */}
           {

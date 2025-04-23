@@ -10,7 +10,7 @@ const Page = () => {
                     {Pages.map((pagina, index) => (
                         <NavLink
                             key={index}
-                            to={ `/pagina/${pagina.link}` }
+                            to={ `/paginas/${pagina.link}` }
                         className="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition duration-300 ease-in-out"
 
                            >

@@ -1,15 +1,15 @@
 import React from 'react';
 import { Outlet, useLocation } from 'react-router';
 const pageTitles = {
-    '/pages': 'Navegue pelas Páginas',
-    '/pages/ajuda': 'Ajuda (FAQ)',
-    '/pages/sobre': 'Sobre Nós',
-    '/pages/privacidade': 'Política de Privacidade',
-    '/pages/termos': 'Termos e Condições',
-    '/pages/rastreio': 'Rastreie seu Pedido',
-    '/pages/politica-de-entrega': 'Política de Entrega',
-    '/pages/politica-de-troca': 'Política de Troca e Devolução',
-    '/pages/trabalhe-conosco': 'Trabalhe Conosco',
+    '/paginas': 'Navegue pelas Páginas',
+    '/paginas/ajuda': 'Ajuda (FAQ)',
+    '/paginas/sobre': 'Sobre Nós',
+    '/paginas/privacidade': 'Política de Privacidade',
+    '/paginas/termos': 'Termos e Condições',
+    '/paginas/rastreio': 'Rastreie seu Pedido',
+    '/paginas/politica-de-entrega': 'Política de Entrega',
+    '/paginas/politica-de-troca': 'Política de Troca e Devolução',
+    '/paginas/trabalhe-conosco': 'Trabalhe Conosco',
 
 };
 
