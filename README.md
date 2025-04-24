@@ -1,55 +1,123 @@
-# 🚀 Project Technology Stack
+# 🛠️ Project Documentation
 
-<div  style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 2rem 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;">
+## 🚀 Project Overview
+Este projeto é uma plataforma de e-commerce que utiliza a arquitetura MERN (MongoDB, Express, React, Node.js). Ele é desenvolvido com um front-end dinâmico em React e um back-end robusto em Node.js com Express, utilizando MongoDB como banco de dados e Stripe para processamentos de pagamentos.
 
-<div style="background: #f8fafc; padding: 1.5rem; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.12);">
+### Funcionalidades
+- **Autenticação de Usuários** com JWT (JSON Web Token).
+- **Gestão de Produtos** com funcionalidades de CRUD (Create, Read, Update, Delete).
+- **Carrinho de Compras Dinâmico** com suporte a adição e remoção de produtos.
+- **Processamento de Pagamentos** via Stripe.
+- **Interface Responsiva** para uma boa experiência em dispositivos móveis.
 
-## 🌈 Frontend
+## 🚀 Technology Stack
 
-### ⚡ Core Framework
+### 🌈 Frontend
 
-- ![Vite](https://img.shields.io/badge/-Vite-646CFF?logo=vite&logoColor=white) [Vite](https://vitejs.dev/) - Blazing fast build tool  
-- ![React](https://img.shields.io/badge/-React-61DAFB?logo=react&logoColor=white) [React](https://react.dev/) - Component-based UI library  
-- ![React Router](https://img.shields.io/badge/-React_Router-CA4245?logo=react-router&logoColor=white) [React Router](https://reactrouter.com/) - Navigation system  
-- ![Chart.js](https://img.shields.io/badge/-Chart.js-FF6384?logo=chartdotjs&logoColor=white) [Chart.js](https://www.chartjs.org/) - Simple yet flexible JavaScript charting for designers & developers
-- ![rect-chartjs-2](https://img.shields.io/badge/-react-chartjs-2-FFCE56?logo=react-chartjs-2&logoColor=white) [react-chartjs-2](https://www.npmjs.com/package/react-chartjs-2) - React wrapper for Chart.js
-### 🎨 Styling & Assets
-- ![Tailwind CSS](https://img.shields.io/badge/-Tailwind_CSS-38B2AC?logo=tailwind-css&logoColor=white) [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS  
-- ![RemixIcon](https://img.shields.io/badge/-RemixIcon-000000?logo=remix&logoColor=white) [RemixIcon](https://remixicon.com/) - Beautiful icons  
+#### ⚡ Core Frameworks
+- [**Vite**](https://vitejs.dev/) - Ferramenta de build ultra-rápida.
+- [**React**](https://react.dev/) - Biblioteca de interface baseada em componentes.
+- [**React Router**](https://reactrouter.com/) - Sistema de navegação para páginas dentro do React.
+- [**Chart.js**](https://www.chartjs.org/) - Biblioteca para criação de gráficos flexíveis.
+- [**react-chartjs-2**](https://www.npmjs.com/package/react-chartjs-2) - Wrapper do React para o Chart.js.
 
-### 🧠 State Management
-- ![Redux](https://img.shields.io/badge/-Redux_Toolkit-764ABC?logo=redux&logoColor=white) [Redux Toolkit](https://redux-toolkit.js.org/) - State container  
+#### 🎨 Estilização e Assets
+- [**Tailwind CSS**](https://tailwindcss.com/) - CSS utilitário-first para um design customizável.
+- [**RemixIcon**](https://remixicon.com/) - Ícones bonitos e modernos.
 
-</div>
+#### 🧠 Gerenciamento de Estado
+- [**Redux Toolkit**](https://redux-toolkit.js.org/) - Ferramenta para gerenciamento de estado de forma eficiente.
 
-<div style="background: #f8fafc; padding: 1.5rem; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.12);">
+---
 
-## 🛠️ Backend
+### 🛠️ Backend
 
-### 🏗️ Server & Database
-- ![Express](https://img.shields.io/badge/-Express-000000?logo=express&logoColor=white) [Express](https://expressjs.com/) - Web framework  
-- ![MongoDB](https://img.shields.io/badge/-MongoDB-47A248?logo=mongodb&logoColor=white) [MongoDB](https://www.mongodb.com/) - NoSQL database  
-- ![Mongoose](https://img.shields.io/badge/-Mongoose-880000?logo=mongoose&logoColor=white) [Mongoose](https://mongoosejs.com/) - Elegant ODM  
+#### 🏗️ Servidor e Banco de Dados
+- [**Express**](https://expressjs.com/) - Framework minimalista e flexível para construção de APIs.
+- [**MongoDB**](https://www.mongodb.com/) - Banco de dados NoSQL para armazenar dados de produtos, usuários, pedidos, etc.
+- [**Mongoose**](https://mongoosejs.com/) - ODM (Object Data Modeling) para facilitar a interação com MongoDB.
 
-### 🔌 Middleware
-- ![CORS](https://img.shields.io/badge/-CORS-000000?logo=cors&logoColor=white) [CORS](https://www.npmjs.com/package/cors)  
-- ![Cookie Parser](https://img.shields.io/badge/-Cookie_Parser-000000?logo=cookiecutter&logoColor=white) [Cookie Parser](https://www.npmjs.com/package/cookie-parser)  
-- ![Body Parser](https://img.shields.io/badge/-Body_Parser-000000?logo=bodybuildingdotcom&logoColor=white) [Body Parser](https://www.npmjs.com/package/body-parser)  
+#### 🔌 Middleware
+- [**CORS**](https://www.npmjs.com/package/cors) - Middleware para gerenciar o compartilhamento de recursos entre diferentes origens.
+- [**Cookie Parser**](https://www.npmjs.com/package/cookie-parser) - Middleware para parseamento de cookies.
+- [**Body Parser**](https://www.npmjs.com/package/body-parser) - Middleware para parseamento de corpos de requisições HTTP.
 
-### 🔒 Security
-- ![Bcrypt](https://img.shields.io/badge/-Bcrypt-000000?logo=bcrypt&logoColor=white) [Bcrypt](https://www.npmjs.com/package/bcrypt)  
-- ![JWT](https://img.shields.io/badge/-JWT-000000?logo=json-web-tokens&logoColor=white) [JWT](https://jwt.io/)  
+#### 🔒 Segurança
+- [**Bcrypt**](https://www.npmjs.com/package/bcrypt) - Utilizado para criptografar senhas dos usuários.
+- [**JWT**](https://jwt.io/) - Tecnologia de token JWT para autenticação de usuários.
 
-### 💳 Payments
-- ![Stripe](https://img.shields.io/badge/-Stripe-008CDD?logo=stripe&logoColor=white) [Stripe](https://stripe.com/)  
+#### 💳 Pagamentos
+- [**Stripe**](https://stripe.com/) - Plataforma para processar pagamentos online de forma segura.
 
-### ⚙️ Dev Tools
-- ![dotenv](https://img.shields.io/badge/-dotenv-000000?logo=dotenv&logoColor=white) [dotenv](https://www.npmjs.com/package/dotenv)  
-- ![Nodemon](https://img.shields.io/badge/-Nodemon-76D04B?logo=nodemon&logoColor=white) [Nodemon](https://nodemon.io/)  
+#### ⚙️ Ferramentas de Desenvolvimento
+- [**node env**](https://nodejs.org/pt/learn/command-line/how-to-read-environment-variables-from-nodejs) - Para carregar variáveis de ambiente.
+- [**Nodemon**](https://nodemon.io/) - Ferramenta para reiniciar automaticamente o servidor durante o desenvolvimento.
 
-</div>
-</div>
+---
 
-<div style="margin-top: 2rem; padding: 1rem; background: #f0f9ff; border-radius: 8px; border-left: 4px solid #0369a1; font-size: 0.95rem;">
-💡 This project uses a modern MERN stack architecture with Vite for ultra-fast frontend development and Express for a lightweight backend.
-</div>
+## ⚡ Como Executar o Projeto
+
+### 1. Clonar o Repositório
+
+```bash
+git clone https://github.com/virgiliocesar/ecomerce-fashion.git
+cd ecomerce-fashion
+```
+
+### 2. Instalar as Dependências
+#### Frontend
+
+```bash
+cd frontend
+npm install
+```
+#### Backend
+
+```bash
+cd backend
+npm install
+```
+
+### 3. Configurar as Variáveis de Ambiente
+#### Frontend
+
+```bash
+VITE_STRIPE_PK= "COLOCAR AQUI SUA CHAVE PUBLICA DO STRIPE"
+```
+#### Backend
+
+```bash
+MONGO_DB= "COLOCAR AQUI SUA STRING DE CONEXAO COM O MONGODB"
+PORT= 5000
+JWT_SECRET_KEY= "COLOCAR AQUI SUA CHAVE SECRETA"
+STRIPE_SECRET_KEY= "COLOCAR AQUI SUA CHAVE SECRETA DO STRIPE"
+
+CLOUDINARY_URL= "COLOCAR AQUI SUA STRING DE CONEXAO COM O CLOUDINARY"
+
+CLOUDINARY_CLOUD_NAME=
+CLOUDINARY_API_KEY=
+CLOUDINARY_API_SECRET=
+
+```
+
+### 4. Executar o Projeto
+#### Backend
+
+```bash
+cd backend
+npm run start:dev
+```
+#### Frontend
+
+```bash
+cd frontend
+npm run start:dev
+```
+
+### 5. Acesse o Projeto
+
+O projeto estará disponível em http://localhost:3000 para o front-end e http://localhost:5000 para o back-end.
+
+
+###  Licença
+Este projeto está licenciado sob a [MIT License](./LICENCE).
