@@ -3,6 +3,7 @@ import { clearCart } from '../../redux/features/cart/cartSlice';
 
 import { loadStripe } from "@stripe/stripe-js";
 import { getBaseUrl } from '../../utils/baseUrl.js';
+import logger from '../../../public/utils/logger.js';
 
 const OrderSummary = () => {
   const dispatch = useDispatch();
@@ -40,14 +41,14 @@ const OrderSummary = () => {
     })
 
     const session = await response.json();
-    console.log("session", session);
+    logger.info("session", session);
 
     const result = await stripe.redirectToCheckout({
       sessionId: session.id
     })
-    console.log("result", result);
+    logger.info("result", result);
     if (result.error) {
-      console.log("error", result.error);
+      logger.error("error", result.error);
     }
   }
 

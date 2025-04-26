@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useUpdateUserRoleMutation } from '../../../../redux/features/auth/authApi';
 import { toast } from 'react-toastify';
+import logger from './../../../../../public/utils/logger';
 
 const UpdateUserModal = ({ user, onClose, onRoleUpdate }) => {
     const [role, setRole] = useState(user.role);
@@ -13,7 +14,7 @@ const UpdateUserModal = ({ user, onClose, onRoleUpdate }) => {
             onRoleUpdate();
             onClose();
         } catch (error) {
-            console.error("Falha ao atualizar o papel do usuário", error);
+            logger.error("Falha ao atualizar o papel do usuário", error);
         }
     };
 

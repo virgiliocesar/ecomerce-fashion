@@ -3,12 +3,13 @@ import { useSelector } from 'react-redux'
 import { useGetOrderByIdQuery } from '../../../redux/features/orders/orderApi'
 import { useParams } from 'react-router'
 import TimelineStep from '../../../components/TimelineStep'
+import logger from '../../../../public/utils/logger'
 
 const OrderDetails = () => {
     const { orderId } = useParams();
-    console.log(orderId);
+    logger.info(orderId);
     const { data: order, error, isLoading } = useGetOrderByIdQuery(orderId)
-    console.log(order);
+    logger.info(order);
 
     if(isLoading) return <div>Loading...</div>
     if (error) return <div>No orders!</div>

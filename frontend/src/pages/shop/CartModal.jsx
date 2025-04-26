@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { removeFromCart, updateQuantity } from "../../redux/features/cart/cartSlice"; // Importe as actions
 import OrderSummary from "./OrderSummary";
+import logger from "../../../public/utils/logger";
 
 const CartModal = ({ products, isOpen, onClose }) => {
     const dispatch = useDispatch();
@@ -11,7 +12,7 @@ const CartModal = ({ products, isOpen, onClose }) => {
     };
 
     const handleRemove = (e,id) => {
-        console.log("Removing item with ID:", id); // Depuração
+        logger.info("Removing item with ID:", id); // Depuração
         dispatch(removeFromCart({ id }));
     };
 

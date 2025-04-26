@@ -2,6 +2,7 @@ import { toast } from "react-toastify";
 import { useDeleteUserMutation, useGetUserQuery } from "../../../../redux/features/auth/authApi";
 import UpdateUserModal from "./UpdateUserModal";
 import { useState } from "react";
+import logger from "../../../../../public/utils/logger";
 
 const ManageUser = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -15,7 +16,7 @@ const ManageUser = () => {
       toast.success("Usuário deletado com sucesso!");
       refetch();
     } catch (error) {
-      console.log("Failed to delete user", error);
+      logger.log("Failed to delete user", error);
     }
   };
 

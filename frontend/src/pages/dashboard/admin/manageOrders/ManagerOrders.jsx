@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import UpdateOrderModal from './UpdateOrderModal';
 import { useDeleteOrderMutation, useGetAllOrdersQuery } from '../../../../redux/features/orders/orderApi';
 import { toast } from 'react-toastify';
+import logger from '../../../../../public/utils/logger';
 
 
 const ManageOrders = () => {
@@ -28,7 +29,7 @@ const ManageOrders = () => {
             refetch();
 
         } catch (error) {
-            console.error("Failed to delete order:", error);
+            logger.error("Failed to delete order:", error);
         }
     }
 

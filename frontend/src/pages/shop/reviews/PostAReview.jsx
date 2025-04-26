@@ -4,6 +4,7 @@ import { useParams } from 'react-router';
 import { useFetchProductByIdQuery } from '../../../redux/features/products/productsApi';
 import { usePostReviewMutation } from '../../../redux/features/reviews/reviewsApi';
 import { toast } from 'react-toastify';
+import logger from '../../../utils/logger';
 
 const PostAReview = ({ isModalOpen, handleClose }) => {
     const { id } = useParams();
@@ -35,7 +36,7 @@ const PostAReview = ({ isModalOpen, handleClose }) => {
             refetch();
 
         } catch (error) {
-            console("Failed to post review", error)
+            logger.error("Failed to post review", error)
             toast.error("Falha ao postar comentário")
         }
         handleClose();

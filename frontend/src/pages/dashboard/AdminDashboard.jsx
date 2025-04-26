@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router'
 import { useLogoutUserMutation } from '../../redux/features/auth/authApi'
 import { logout } from '../../redux/features/auth/authSlice'
 import { Link, NavLink } from 'react-router'
+import logger from '../../../public/utils/logger'
 
 const navItems = [
     {
@@ -29,14 +30,14 @@ const AdminDashboard = () => {
     const [logoutUser] = useLogoutUserMutation();
       const dispatch = useDispatch();
       const navigate = useNavigate();
-    
+
       const handledLogout = async () => {
         try {
           await logoutUser().unwrap();
           dispatch(logout());
           navigate("/");
         } catch (error) {
-          console.log("Failed to logout",error);
+          logger.error("Failed to logout",error);
         }
       }
   return (

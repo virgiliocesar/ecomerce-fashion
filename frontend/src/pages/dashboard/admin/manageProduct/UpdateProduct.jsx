@@ -5,6 +5,7 @@ import TextInput from '../addProduct/TextInput'
 import { useFetchProductByIdQuery, useUpdateProductMutation } from '../../../../redux/features/products/productsApi'
 import { useNavigate, useParams } from 'react-router'
 import { useSelector } from 'react-redux'
+import logger from '../../../../../public/utils/logger'
 
 
 const categories = [
@@ -87,7 +88,7 @@ const UpdateProduct = () => {
             await refetch()
             navigate("/painel/gerenciar-produtos")
         } catch (error) {
-            console.log("Failed to update product", error)
+            logger.log("Failed to update product", error)
         }
     }
 

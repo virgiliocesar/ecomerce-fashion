@@ -7,6 +7,7 @@ import avatarImg from "../assets/avatar.png";
 import { useLogoutUserMutation } from "../redux/features/auth/authApi";
 import { logout } from "../redux/features/auth/authSlice";
 import { toast } from "react-toastify";
+import logger from "../../public/utils/logger";
 
 const Navbar = () => {
   const products = useSelector((state) => state.cart.products);
@@ -52,7 +53,7 @@ const Navbar = () => {
       toast.success('Logout efetuado com sucesso')
       navigate('/')
     } catch (error) {
-      console.log("failed to logout", error);
+      logger.error("Failed to logout", error);
     }
   }
 
