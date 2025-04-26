@@ -3,7 +3,7 @@ import { clearCart } from '../../redux/features/cart/cartSlice';
 
 import { loadStripe } from "@stripe/stripe-js";
 import { getBaseUrl } from '../../utils/baseUrl.js';
-import logger from '../../../public/utils/logger.js';
+import logger from '../../../src/utils/logger.js';
 
 const OrderSummary = () => {
   const dispatch = useDispatch();

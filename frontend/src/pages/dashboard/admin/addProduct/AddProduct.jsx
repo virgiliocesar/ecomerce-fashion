@@ -6,7 +6,7 @@ import UploadImage from './UploadImage'
 import { useAddProductMutation } from '../../../../redux/features/products/productsApi'
 import { useNavigate } from 'react-router'
 import { toast } from 'react-toastify'
-import logger from '../../../../../public/utils/logger'
+import logger from '../../../../../src/utils/logger'
 
 const categories = [
     { label: "Selecione a Categoria", value: "" },

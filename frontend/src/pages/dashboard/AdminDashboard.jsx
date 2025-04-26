@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router'
 import { useLogoutUserMutation } from '../../redux/features/auth/authApi'
 import { logout } from '../../redux/features/auth/authSlice'
 import { Link, NavLink } from 'react-router'
-import logger from '../../../public/utils/logger'
+import logger from '../../../src/utils/logger'
 
 const navItems = [
     {

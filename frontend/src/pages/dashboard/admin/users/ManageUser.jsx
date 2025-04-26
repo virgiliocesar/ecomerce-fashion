@@ -2,7 +2,7 @@ import { toast } from "react-toastify";
 import { useDeleteUserMutation, useGetUserQuery } from "../../../../redux/features/auth/authApi";
 import UpdateUserModal from "./UpdateUserModal";
 import { useState } from "react";
-import logger from "../../../../../public/utils/logger";
+import logger from "../../../../../src/utils/logger";
 
 const ManageUser = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);

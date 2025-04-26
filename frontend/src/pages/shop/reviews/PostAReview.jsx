@@ -49,8 +49,8 @@ const PostAReview = ({ isModalOpen, handleClose }) => {
 
                 <div className='flex items-center mb-4'>
                     {
-                        [1, 2, 3, 4, 5].map((star) => (
-                            <span
+                        [1, 2, 3, 4, 5].map((star, index) => (
+                            <span key={index}
                                 onClick={() => handleRating(star)}
                                 className='cursor-pointer text-yellow-500 text-xl'>
                                 {

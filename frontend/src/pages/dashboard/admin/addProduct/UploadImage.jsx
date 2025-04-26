@@ -2,7 +2,7 @@ import{ useState } from "react";
 import axios from "axios";
 import { getBaseUrl } from "../../../../utils/baseUrl";
 import { toast } from "react-toastify";
-import logger from './../../../../../public/utils/logger';
+import logger from './../../../../../src/utils/logger';
 
 const UploadImage = ({ name, setImage }) => {
     const [loading, setLoading] = useState(false);

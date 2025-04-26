@@ -5,7 +5,7 @@ import TextInput from '../addProduct/TextInput'
 import { useFetchProductByIdQuery, useUpdateProductMutation } from '../../../../redux/features/products/productsApi'
 import { useNavigate, useParams } from 'react-router'
 import { useSelector } from 'react-redux'
-import logger from '../../../../../public/utils/logger'
+import logger from '../../../../../src/utils/logger'
 
 
 const categories = [

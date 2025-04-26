@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { getBaseUrl } from '../utils/baseUrl';
 import TimelineStep from './TimelineStep';
-import logger from '../../public/utils/logger';
+import logger from '../../src/utils/logger';
 
 const PaymentSuccess = () => {
   const [order, setOrder] = useState(null);

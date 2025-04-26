@@ -7,7 +7,7 @@ import avatarImg from "../assets/avatar.png";
 import { useLogoutUserMutation } from "../redux/features/auth/authApi";
 import { logout } from "../redux/features/auth/authSlice";
 import { toast } from "react-toastify";
-import logger from "../../public/utils/logger";
+import logger from "../../src/utils/logger";
 
 const Navbar = () => {
   const products = useSelector((state) => state.cart.products);

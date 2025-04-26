@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { useGetOrderByIdQuery } from '../../../redux/features/orders/orderApi'
 import { useParams } from 'react-router'
 import TimelineStep from '../../../components/TimelineStep'
-import logger from '../../../../public/utils/logger'
+import logger from '../../../../src/utils/logger'
 
 const OrderDetails = () => {
     const { orderId } = useParams();

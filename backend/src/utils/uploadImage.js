@@ -1,5 +1,3 @@
-const logger = require("./logger");
-
 // Require the cloudinary library
 const cloudinary = require("cloudinary").v2;
 
@@ -22,7 +20,7 @@ module.exports = async (image) => {
     const result = await cloudinary.uploader.upload(image, opts);
     return result.secure_url;
   } catch (error) {
-    logger.error(error.message);
+    console.error(error.message);
     throw new Error("Erro ao fazer upload da imagem");
   }
 };

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useUpdateOrderStatusMutation } from '../../../../redux/features/orders/orderApi';
-import logger from './../../../../../public/utils/logger';
+import logger from './../../../../../src/utils/logger';
 
 const UpdateOrderModal = ({ order, isOpen, onClose }) => {
     const [status, setStatus] = useState(order?.status);

@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import UpdateOrderModal from './UpdateOrderModal';
 import { useDeleteOrderMutation, useGetAllOrdersQuery } from '../../../../redux/features/orders/orderApi';
 import { toast } from 'react-toastify';
-import logger from '../../../../../public/utils/logger';
+import logger from '../../../../../src/utils/logger';
 
 
 const ManageOrders = () => {

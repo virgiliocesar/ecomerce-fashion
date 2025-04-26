@@ -5,7 +5,7 @@ import avatarImg from '../../../assets/avatar.png'
 import { setUser } from "../../../redux/features/auth/authSlice"
 import { useEffect } from "react"
 import { toast } from "react-toastify"
-import logger from "../../../../public/utils/logger"
+import logger from "../../../../src/utils/logger"
 
 const UserProfile = () => {
     const dispatch = useDispatch()

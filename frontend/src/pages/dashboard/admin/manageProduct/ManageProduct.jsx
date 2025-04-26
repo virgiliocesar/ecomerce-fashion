@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useDeleteProductMutation, useFetchAllProductsQuery } from '../../../../redux/features/products/productsApi'
 import { Link } from 'react-router'
 import { toast } from 'react-toastify'
-import logger from '../../../../../public/utils/logger'
+import logger from '../../../../../src/utils/logger'
 
 const ManageProduct = () => {
 
