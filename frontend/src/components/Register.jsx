@@ -2,6 +2,7 @@ import { useState } from "react"
 import { Link } from "react-router"
 import { useNavigate } from 'react-router'
 import { useRegisterUserMutation } from "../redux/features/auth/authApi"
+import { toast } from "react-toastify"
 
 const Register = () => {
   const [message, setMessage] = useState('')
@@ -15,7 +16,6 @@ const Register = () => {
   const handleRegister = async (e) => {
     e.preventDefault()
 
-    alert('Cadastro efetuado com sucesso')
     const data = {
       username,
       email,
@@ -23,8 +23,10 @@ const Register = () => {
     }
     try {
       await registerUser(data).unwrap()
-      alert('Registro efetuado com sucesso')
-      navigate('/entrar')
+      toast.success('Cadastro efetuado com sucesso')
+      setTimeout(() => {
+        navigate('/entrar');
+      }, 2000);
     } catch (error) {
       setMessage("verifique os dados e tente novamente...")
     }

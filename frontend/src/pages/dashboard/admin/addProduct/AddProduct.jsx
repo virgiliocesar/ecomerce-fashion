@@ -5,6 +5,7 @@ import SelectInput from './SelectInput'
 import UploadImage from './UploadImage'
 import { useAddProductMutation } from '../../../../redux/features/products/productsApi'
 import { useNavigate } from 'react-router'
+import { toast } from 'react-toastify'
 
 const categories = [
     { label: "Selecione a Categoria", value: "" },
@@ -52,13 +53,13 @@ const AddProduct = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!product.name || !product.category || !product.price || !product.description || !product.color) {
-            alert('Por favor, preencha todos os campos necessários');
+            toast.error('Por favor, preencha todos os campos necessários');
             return;
         }
 
         try {
             await AddProduct({ ...product, image, author: user?._id }).unwrap();
-            alert('Product added successfully');
+            toast.success('Produto adicionado com sucesso!');
             setProduct({
                 name: '',
                 category: '',

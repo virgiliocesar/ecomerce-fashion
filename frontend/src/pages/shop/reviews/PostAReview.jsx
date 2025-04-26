@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import { useFetchProductByIdQuery } from '../../../redux/features/products/productsApi';
 import { usePostReviewMutation } from '../../../redux/features/reviews/reviewsApi';
+import { toast } from 'react-toastify';
 
 const PostAReview = ({ isModalOpen, handleClose }) => {
     const { id } = useParams();
@@ -28,13 +29,14 @@ const PostAReview = ({ isModalOpen, handleClose }) => {
         try {
 
             const response = await postReview(newComment).unwrap();
-            alert("Comentário postado com sucesso!")
+            toast.success("Comentário postado com sucesso!")
             setComment('');
             setRating(0);
             refetch();
 
         } catch (error) {
-            alert(error.message)
+            console("Failed to post review", error)
+            toast.error("Falha ao postar comentário")
         }
         handleClose();
     }

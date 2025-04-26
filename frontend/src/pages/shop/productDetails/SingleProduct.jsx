@@ -5,17 +5,19 @@ import { useDispatch } from "react-redux"
 import { useFetchProductByIdQuery } from '../../../redux/features/products/productsApi';
 import { addToCart } from '../../../redux/features/cart/cartSlice';
 import ReviewsCard from '../reviews/ReviewsCard';
+import { toast } from 'react-toastify';
 
 const SingleProduct = () => {
     const { id } = useParams();
 
     const dispatch = useDispatch();
-    const { data, error, isLoading } = useFetchProductByIdQuery(id);
+    const { data, error, isLoading, } = useFetchProductByIdQuery(id);
 
     const singleProduct = data?.product || {};
     const productReviews = data?.reviews || [];
 
     const handleAddToCart = (product) => {
+        toast.success('Produto adicionado ao carrinho')
         dispatch(addToCart(product))
     }
 

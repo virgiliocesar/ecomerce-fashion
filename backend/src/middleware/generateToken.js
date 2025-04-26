@@ -10,9 +10,9 @@ const generateToken = async (userId) => {
       throw new Error("User not found");
     }
 
-    // Inclua a role do usuário no payload do token
+    //^^ Inclua a role do usuário no payload do token
     const token = jwt.sign(
-      { userId: user._id, role: user.role }, // Adiciona a role aqui
+      { userId: user._id, role: user.role },
       JWT_SECRET,
       { expiresIn: "1h" }
     );
@@ -20,7 +20,7 @@ const generateToken = async (userId) => {
     return token;
   } catch (error) {
     console.error("Error generating token:", error);
-    throw error; // Propaga o erro para ser tratado no endpoint
+    throw error;
   }
 };
 

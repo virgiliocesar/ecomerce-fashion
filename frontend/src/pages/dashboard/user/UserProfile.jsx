@@ -4,6 +4,7 @@ import { useEditProfileMutation } from "../../../redux/features/auth/authApi"
 import avatarImg from '../../../assets/avatar.png'
 import { setUser } from "../../../redux/features/auth/authSlice"
 import { useEffect } from "react"
+import { toast } from "react-toastify"
 
 const UserProfile = () => {
     const dispatch = useDispatch()
@@ -51,10 +52,10 @@ const UserProfile = () => {
                 console.log(response)
                 dispatch(setUser(response.user));
                 localStorage.setItem('user', JSON.stringify(response.user))
-                alert('Profile updated successfully!');
+                toast.success("Perfil Atualizado com sucesso!");
             } catch (error) {
-              console.error("Failed to update profile", error)  ;
-              alert("Failed to update profile. Please try again")
+              console.error("Failed to update profile", error)
+                toast.error("Falha ao atualizar o perfil. Por favor, tente novamente")
             }
     
             setIsModalOpen(false)

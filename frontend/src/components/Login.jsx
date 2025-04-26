@@ -4,6 +4,7 @@ import { Link } from "react-router"
 import { useLoginUserMutation } from "../redux/features/auth/authApi"
 import { useNavigate } from 'react-router'
 import { setUser } from "../redux/features/auth/authSlice"
+import { toast } from 'react-toastify';
 
 const Login = () => {
   const [message, setMessage] = useState('')
@@ -26,10 +27,9 @@ const Login = () => {
 
     try {
       const response = await loginUsers(data).unwrap()
-      console.log(response);
       const { token, user } = response
-      dispatch(setUser({ user}))
-      alert('Login efetuado com sucesso')
+      dispatch(setUser({ user }))
+      toast.success('Login efetuado com sucesso')
       navigate('/')
     } catch (error) {
       setMessage("Forneça um email e senha válidos")
