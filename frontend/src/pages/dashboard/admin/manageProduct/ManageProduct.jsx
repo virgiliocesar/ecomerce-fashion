@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useDeleteProductMutation, useFetchAllProductsQuery } from '../../../../redux/features/products/productsApi'
 import { Link } from 'react-router'
+import { toast } from 'react-toastify'
 
 const ManageProduct = () => {
 
@@ -25,7 +26,7 @@ const ManageProduct = () => {
     const handleDeleteProduct = async (productId) => {
         try {
             const response = await deleteProduct(productId).unwrap();
-            // alert("Produto deletado com sucesso!");
+            toast.success("Produto deletado com sucesso!");
             await refetch();
         } catch (error) {
             console.error("Erro ao deletar produto:", error);

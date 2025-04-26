@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
-
-import { formatDate } from '../../../../utils/formateDate';
 import { Link } from 'react-router';
 import UpdateOrderModal from './UpdateOrderModal';
 import { useDeleteOrderMutation, useGetAllOrdersQuery } from '../../../../redux/features/orders/orderApi';
+import { toast } from 'react-toastify';
 
 
 const ManageOrders = () => {
@@ -22,10 +21,10 @@ const ManageOrders = () => {
         setSelectedOrder(null);
     }
 
-    const handleDeleteOder = async (orderId) => {
+    const handleDeleteOrder = async (orderId) => {
         try {
             await deleteOrder(orderId).unwrap();
-            alert("Order deleted successfully");
+            toast.success("Order deleted successfully");
             refetch();
 
         } catch (error) {

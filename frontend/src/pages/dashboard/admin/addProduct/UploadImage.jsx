@@ -1,6 +1,7 @@
 import{ useState } from "react";
 import axios from "axios";
 import { getBaseUrl } from "../../../../utils/baseUrl";
+import { toast } from "react-toastify";
 
 const UploadImage = ({ name, setImage }) => {
     const [loading, setLoading] = useState(false);
@@ -31,7 +32,7 @@ const UploadImage = ({ name, setImage }) => {
                 const imageUrl = res.data;
                 setUrl(imageUrl);
                 // console.log(imageUrl);
-                alert("Image uploaded successfully");
+                toast.success("Imagem enviada com sucesso");
                 setImage(imageUrl);
             })
             .then(() => setLoading(false))
