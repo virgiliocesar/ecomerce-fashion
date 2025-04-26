@@ -5,6 +5,7 @@ import avatarImg from '../../../assets/avatar.png'
 import { setUser } from "../../../redux/features/auth/authSlice"
 import { useEffect } from "react"
 import { toast } from "react-toastify"
+import logger from "../../../../public/utils/logger"
 
 const UserProfile = () => {
     const dispatch = useDispatch()
@@ -49,12 +50,12 @@ const UserProfile = () => {
             }
             try {
                 const response = await editProfile(updatedUser).unwrap();
-                console.log(response)
+                logger.info(response)
                 dispatch(setUser(response.user));
                 localStorage.setItem('user', JSON.stringify(response.user))
                 toast.success("Perfil Atualizado com sucesso!");
             } catch (error) {
-              console.error("Failed to update profile", error)
+                logger.error("Failed to update profile", error)
                 toast.error("Falha ao atualizar o perfil. Por favor, tente novamente")
             }
     

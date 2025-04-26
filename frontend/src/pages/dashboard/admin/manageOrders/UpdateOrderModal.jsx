@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useUpdateOrderStatusMutation } from '../../../../redux/features/orders/orderApi';
+import logger from './../../../../../public/utils/logger';
 
 const UpdateOrderModal = ({ order, isOpen, onClose }) => {
     const [status, setStatus] = useState(order?.status);
@@ -11,7 +12,7 @@ const UpdateOrderModal = ({ order, isOpen, onClose }) => {
             await updateOrderStatus({ id: order?._id, status })
             onClose();
         } catch (error) {
-            console.error("Failed to update order status:", error);
+            logger.error("Failed to update order status:", error);
         }
     }
 
@@ -28,10 +29,9 @@ const UpdateOrderModal = ({ order, isOpen, onClose }) => {
                             id="status"
                             value={status}
                             onChange={(e) => setStatus(e.target.value)}
-                            className="border border-gray-300 p-2 rounded w-full"
-                        >
+                            className="border border-gray-300 p-2 rounded w-full">
                             <option value="entregue">Entregue</option>
-                            <option value="enviado">Enviado</option>;
+                            <option value="enviado">Enviado</option>
                             <option value="processando">Processando</option>
                             <option value="pendente">Pendente</option>
                         </select>

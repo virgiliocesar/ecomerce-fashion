@@ -6,6 +6,7 @@ import UploadImage from './UploadImage'
 import { useAddProductMutation } from '../../../../redux/features/products/productsApi'
 import { useNavigate } from 'react-router'
 import { toast } from 'react-toastify'
+import logger from '../../../../../public/utils/logger'
 
 const categories = [
     { label: "Selecione a Categoria", value: "" },
@@ -70,7 +71,7 @@ const AddProduct = () => {
             setImage('');
             navigate("/loja")
         } catch (error) {
-            console.log("Failed to submit product", error);
+            logger.error("Failed to submit product", error);
         }
     }
 

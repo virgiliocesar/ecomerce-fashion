@@ -2,6 +2,7 @@ import{ useState } from "react";
 import axios from "axios";
 import { getBaseUrl } from "../../../../utils/baseUrl";
 import { toast } from "react-toastify";
+import logger from './../../../../../public/utils/logger';
 
 const UploadImage = ({ name, setImage }) => {
     const [loading, setLoading] = useState(false);
@@ -31,13 +32,13 @@ const UploadImage = ({ name, setImage }) => {
             .then((res) => {
                 const imageUrl = res.data;
                 setUrl(imageUrl);
-                // console.log(imageUrl);
+                logger.info("Imagem enviada com sucesso");
                 toast.success("Imagem enviada com sucesso");
                 setImage(imageUrl);
             })
             .then(() => setLoading(false))
             .catch((error) => {
-                console.error(error);
+                logger.error(error);
                 setLoading(false);
             });
     };

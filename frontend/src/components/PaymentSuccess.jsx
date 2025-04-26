@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { getBaseUrl } from '../utils/baseUrl';
 import TimelineStep from './TimelineStep';
+import logger from '../../public/utils/logger';
 
 const PaymentSuccess = () => {
   const [order, setOrder] = useState(null);
@@ -18,7 +19,7 @@ const PaymentSuccess = () => {
       })
         .then((res) => res.json())
         .then((data) => setOrder(data.order))
-        .catch((err) => console.error("Error confirming payment", err))
+        .catch((err) => logger.error("Error confirming payment", err))
     }
   }, [])
 
