@@ -83,6 +83,7 @@ npm install
 
 ```bash
 VITE_STRIPE_PK= "COLOCAR AQUI SUA CHAVE PUBLICA DO STRIPE"
+NODE_ENV="development"
 ```
 #### Backend
 
