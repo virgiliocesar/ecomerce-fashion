@@ -40,13 +40,13 @@ main()
   .then(() => console.log("conectado ao MongoDB com sucesso"))
   .catch((err) => console.log(err));
 
-//^ Connect to MongoDB database
-async function main() {
-  await mongoose.connect(url);
-
   app.get("/", (req, res) => {
     res.send("Fashion E-commerce Server!");
   });
+
+//^ Connect to MongoDB database
+async function main() {
+  await mongoose.connect(url);
 }
 
 app.post("/uploadImage", (req, res) => {
@@ -56,5 +56,5 @@ app.post("/uploadImage", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+  console.log(`Server is running on port ${port}`);
 });
