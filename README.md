@@ -82,18 +82,18 @@ npm install
 #### Frontend
 
 ```bash
-VITE_STRIPE_PK= "COLOCAR AQUI SUA CHAVE PUBLICA DO STRIPE"
+VITE_STRIPE_PK=
 NODE_ENV="development"
 ```
 #### Backend
 
 ```bash
-MONGO_DB= "COLOCAR AQUI SUA STRING DE CONEXAO COM O MONGODB"
+MONGO_DB=
 PORT= 5000
-JWT_SECRET_KEY= "COLOCAR AQUI SUA CHAVE SECRETA"
-STRIPE_SECRET_KEY= "COLOCAR AQUI SUA CHAVE SECRETA DO STRIPE"
+JWT_SECRET_KEY=
+STRIPE_SECRET_KEY=
 
-CLOUDINARY_URL= "COLOCAR AQUI SUA STRING DE CONEXAO COM O CLOUDINARY"
+CLOUDINARY_URL=
 
 CLOUDINARY_CLOUD_NAME=
 CLOUDINARY_API_KEY=
@@ -117,7 +117,7 @@ npm run start:dev
 ```
 
 ### 5. Acesse o Projeto
-
+alterar arquivo baseUrl no arquivo src/utils/baseURL.js para retornar "http://localhost:5000"
 O projeto estará disponível em http://localhost:3000 para o front-end e http://localhost:5000 para o back-end.
 
 
