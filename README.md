@@ -86,7 +86,7 @@ criar e configurar arquivo frontend/.env.local
 VITE_STRIPE_PK=
 VITE_NODE_ENV="development"
 ```
-alterar arquivo src/utils/baseURL.js para *const baseUrl = "http://localhost:5000"*
+alterar arquivo frontend/src/utils/baseURL.js para *const baseUrl = "http://localhost:5000"*
 
 #### Backend
 
@@ -102,9 +102,10 @@ CLOUDINARY_URL=
 CLOUDINARY_CLOUD_NAME=
 CLOUDINARY_API_KEY=
 CLOUDINARY_API_SECRET=
-BASE_URL="http://localhost:3000"
 Nota: Não se esquecer de configurar MONGO_DB, PORT, JWT_SECRET_KEY, STRIPE_SECRET_KEY, CLOUDINARY_URL, CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY e CLOUDINARY_API_SECRET acima.
 ```
+alterar arquivo backend/src/utils/baseURL.js para *const baseUrl = "http://localhost:3000"*
+
 ### 4. Executar o Projeto
 #### Backend
 
