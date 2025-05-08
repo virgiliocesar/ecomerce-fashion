@@ -4,7 +4,8 @@ const verifyToken = require("../middleware/verifyToken");
 const verifyAdmin = require("../middleware/verifyAdmin");
 const router = express.Router();
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
-const baseUrl = process.env.BASE_URL;
+const { getBaseUrl } = require("../utils/baseUrl.js");
+const baseUrl = getBaseUrl();
 
 //^ create checkout session
 router.post("/create-checkout-session", async (req, res) => {
