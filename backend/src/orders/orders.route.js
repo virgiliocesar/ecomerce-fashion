@@ -4,6 +4,7 @@ const verifyToken = require("../middleware/verifyToken");
 const verifyAdmin = require("../middleware/verifyAdmin");
 const router = express.Router();
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+const baseUrl = process.env.BASE_URL;
 
 //^ create checkout session
 router.post("/create-checkout-session", async (req, res) => {
@@ -27,9 +28,8 @@ router.post("/create-checkout-session", async (req, res) => {
       payment_method_types: ["card"],
       line_items: lineItems,
       mode: "payment",
-      success_url:
-        "http://localhost:3000/success?session_id={CHECKOUT_SESSION_ID}",
-      cancel_url: "http://localhost:3000/loja",
+      success_url: `${baseUrl}/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${baseUrl}/loja`,
     });
     res.json({ id: session.id });
 

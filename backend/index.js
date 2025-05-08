@@ -6,7 +6,7 @@ const app = express();
 
 const port = process.env.PORT || 5000;
 const url = process.env.MONGO_DB;
-
+const baseUrl = process.env.BASE_URL;
 // Middleware setup
 app.use(express.json({ limit: "25mb" }));
 app.use(express.urlencoded({ limit: "25mb", extended: true }));
@@ -14,8 +14,7 @@ app.use(cookieParser());
 app.use(
   cors({
     origin:
-      "https://ecomerce-fashion-frontend.vercel.app" ||
-      "http://localhost:3000",
+      baseUrl,
     credentials: true,
   })
 );
@@ -30,6 +29,7 @@ const productRoutes = require("./src/products/products.route.js");
 const reviewRoutes = require("./src/reviews/reviews.router.js");
 const orderRoutes = require("./src/orders/orders.route.js");
 const statsRoutes = require("./src/stats/stats.route.js");
+const { base } = require("./src/users/user.model.js");
 
 app.use("/api/auth", authRules);
 app.use("/api/products", productRoutes);
@@ -59,4 +59,5 @@ app.post("/uploadImage", (req, res) => {
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
+
 });

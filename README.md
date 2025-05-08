@@ -81,12 +81,16 @@ npm install
 ### 3. Configurar as Variáveis de Ambiente
 #### Frontend
 
+criar e configurar arquivo frontend/.env.local
 ```bash
 VITE_STRIPE_PK=
-NODE_ENV="development"
+VITE_NODE_ENV="development"
 ```
+alterar arquivo src/utils/baseURL.js para *const baseUrl = "http://localhost:5000"*
+
 #### Backend
 
+criar e configurar arquivo backend/.env.local
 ```bash
 MONGO_DB=
 PORT= 5000
@@ -98,10 +102,9 @@ CLOUDINARY_URL=
 CLOUDINARY_CLOUD_NAME=
 CLOUDINARY_API_KEY=
 CLOUDINARY_API_SECRET=
-
+BASE_URL="http://localhost:3000"
 Nota: Não se esquecer de configurar MONGO_DB, PORT, JWT_SECRET_KEY, STRIPE_SECRET_KEY, CLOUDINARY_URL, CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY e CLOUDINARY_API_SECRET acima.
 ```
-
 ### 4. Executar o Projeto
 #### Backend
 
@@ -115,11 +118,8 @@ npm run start:dev
 cd frontend
 npm run start:dev
 ```
-
 ### 5. Acesse o Projeto
-alterar arquivo baseUrl no arquivo src/utils/baseURL.js para retornar "http://localhost:5000"
 O projeto estará disponível em http://localhost:3000 para o front-end e http://localhost:5000 para o back-end.
-
 
 ###  Licença
 Este projeto está licenciado sob a [MIT License](./LICENCE).
