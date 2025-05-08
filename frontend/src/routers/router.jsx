@@ -33,7 +33,7 @@ import Tracking from "../pages/pages/Tracking";
 import Help from "../pages/pages/Help";
 import DeliveryPolicy from "../pages/pages/DeliveryPolicy";
 import ExchangePolicy from "../pages/pages/ExchangePolicy";
-import WorkWithUs from '../pages/Pages/WorkWithUs';
+import WorkWithUs from '../pages/pages/WorkWithUs';
 
 
 
