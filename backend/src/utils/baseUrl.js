@@ -1,4 +1,4 @@
-const baseUrl = "https://ecomerce-fashion-frontend.vercel.app";
+const baseUrl = "https://ecomerce-fashion.vercel.app";
 const getBaseUrl = () => {
     return baseUrl; ;
 }
