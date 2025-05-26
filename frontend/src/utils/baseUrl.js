@@ -1,4 +1,4 @@
-const baseUrl = "https://ecomerce-fashion.onrender.com";
+const baseUrl = "https://ecomerce-fashion-fnvm.onrender.com";
 export const getBaseUrl = () => {
-    return baseUrl; ;
-}
+  return baseUrl;
+};

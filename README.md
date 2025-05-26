@@ -27,7 +27,7 @@ Este projeto é uma plataforma de e-commerce que utiliza a arquitetura MERN (Mon
 
 #### 🧠 Gerenciamento de Estado
 - [**Redux Toolkit**](https://redux-toolkit.js.org/) - Ferramenta para gerenciamento de estado de forma eficiente.
-
+https://cloudinary.com/
 ---
 
 ### 🛠️ Backend
